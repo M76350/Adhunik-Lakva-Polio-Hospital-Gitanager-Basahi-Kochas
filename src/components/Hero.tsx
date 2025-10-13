@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import AppointmentDialog from "./AppointmentDialog";
 import heroImage from "@/assets/hero-hospital.jpg";
 
 const Hero = () => {
+  const { t, language } = useLanguage();
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -26,26 +32,26 @@ const Hero = () => {
         <div className="max-w-3xl animate-fade-in">
           <div className="inline-block mb-6">
             <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
-              Your Health, Our Priority
+              {t("tagline")}
             </span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Excellence in
-            <span className="block text-accent">Healthcare Services</span>
+            {t("heroTitle")}
+            <span className="block text-accent">{t("heroSubtitle")}</span>
           </h1>
           
           <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-            Experience world-class medical care with our team of expert doctors, 
-            state-of-the-art facilities, and compassionate approach to your wellbeing.
+            {t("heroDescription")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg" 
               className="bg-white text-primary hover:bg-white/90 text-base font-semibold px-8 py-6 rounded-full group"
+              onClick={() => setAppointmentOpen(true)}
             >
-              Book Appointment
+              {t("bookAppointment")}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
@@ -53,25 +59,26 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-2 border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm text-base font-semibold px-8 py-6 rounded-full"
+              onClick={() => window.open("tel:+919876543210")}
             >
               <Phone className="mr-2 w-5 h-5" />
-              Emergency: 911
+              {t("emergency")}: +91 98765 43210
             </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/20">
             <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">25+</div>
-              <div className="text-white/80 text-sm">Years Experience</div>
+              <div className="text-4xl font-bold text-white mb-2">20+</div>
+              <div className="text-white/80 text-sm">{t("yearsExperience")}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-white/80 text-sm">Expert Doctors</div>
+              <div className="text-4xl font-bold text-white mb-2">30+</div>
+              <div className="text-white/80 text-sm">{t("expertDoctors")}</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">10K+</div>
-              <div className="text-white/80 text-sm">Happy Patients</div>
+              <div className="text-4xl font-bold text-white mb-2">50K+</div>
+              <div className="text-white/80 text-sm">{t("happyPatients")}</div>
             </div>
           </div>
         </div>
@@ -83,6 +90,8 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/50 rounded-full" />
         </div>
       </div>
+
+      <AppointmentDialog open={appointmentOpen} onOpenChange={setAppointmentOpen} />
     </section>
   );
 };

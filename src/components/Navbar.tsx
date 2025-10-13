@@ -1,21 +1,29 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import AppointmentDialog from "./AppointmentDialog";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/services", label: "Services" },
-    { path: "/doctors", label: "Doctors" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: t("home") },
+    { path: "/about", label: t("about") },
+    { path: "/services", label: t("services") },
+    { path: "/doctors", label: t("doctors") },
+    { path: "/contact", label: t("contact") },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "hi" : "en");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
@@ -25,11 +33,18 @@ const Navbar = () => {
             <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
               <Heart className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold text-gradient">MediCare Plus</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-gradient leading-tight">
+                {language === "en" ? "Aadhunik Lakava" : "आधुनिक लकवा"}
+              </span>
+              <span className="text-xs text-muted-foreground leading-tight">
+                {language === "en" ? "Polio Hospital" : "पोलियो अस्पताल"}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -46,8 +61,20 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <Button className="gradient-primary text-white hover:opacity-90 transition-opacity">
-              Book Appointment
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleLanguage}
+              className="gap-2"
+            >
+              <Languages className="w-4 h-4" />
+              {language === "en" ? "हिन्दी" : "English"}
+            </Button>
+            <Button 
+              className="gradient-primary text-white hover:opacity-90 transition-opacity"
+              onClick={() => setAppointmentOpen(true)}
+            >
+              {t("bookAppointment")}
             </Button>
           </div>
 
@@ -78,13 +105,29 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button className="gradient-primary text-white w-full">
-                Book Appointment
+              <Button
+                variant="outline"
+                onClick={toggleLanguage}
+                className="w-full gap-2"
+              >
+                <Languages className="w-4 h-4" />
+                {language === "en" ? "हिन्दी" : "English"}
+              </Button>
+              <Button 
+                className="gradient-primary text-white w-full"
+                onClick={() => {
+                  setAppointmentOpen(true);
+                  setIsOpen(false);
+                }}
+              >
+                {t("bookAppointment")}
               </Button>
             </div>
           </div>
         )}
       </div>
+      
+      <AppointmentDialog open={appointmentOpen} onOpenChange={setAppointmentOpen} />
     </nav>
   );
 };

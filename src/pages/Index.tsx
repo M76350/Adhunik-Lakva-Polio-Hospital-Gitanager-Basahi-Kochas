@@ -1,10 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import DoctorsSlider from "@/components/DoctorsSlider";
+import DoctorsGallery from "@/components/DoctorsGallery";
 import Testimonials from "@/components/Testimonials";
+import HospitalMap from "@/components/HospitalMap";
+import NearestLocations from "@/components/NearestLocations";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -13,11 +17,15 @@ const Index = () => {
       <main className="pt-20">
         <Hero />
         <Services />
-        <DoctorsSlider />
+        <DoctorsGallery />
         <Testimonials />
+        <HospitalMap />
+        <NearestLocations />
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
+      <ScrollToTop />
     </div>
   );
 };
