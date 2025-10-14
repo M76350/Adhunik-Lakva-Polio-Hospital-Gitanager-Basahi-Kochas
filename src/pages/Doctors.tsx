@@ -1,10 +1,29 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DoctorsSlider from "@/components/DoctorsSlider";
+import ContentSlider from "@/components/ContentSlider";
 import { Award, GraduationCap, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Doctors = () => {
+  const slides = [
+    {
+      title: "Expert Medical Team",
+      description: "Our doctors are highly qualified professionals with years of experience in their respective fields. They stay updated with the latest medical advancements to provide the best care.",
+      gradient: "from-primary to-secondary",
+    },
+    {
+      title: "Specialized Care",
+      description: "Each doctor specializes in specific areas of medicine, ensuring that you receive expert treatment tailored to your needs from professionals who understand your condition.",
+      gradient: "from-secondary to-accent",
+    },
+    {
+      title: "Patient-Centered Approach",
+      description: "Our doctors believe in treating patients with compassion and respect, taking time to listen to your concerns and explain treatment options clearly.",
+      gradient: "from-accent to-primary",
+    },
+  ];
+
   const highlights = [
     {
       icon: Award,
@@ -64,6 +83,9 @@ const Doctors = () => {
             ))}
           </div>
         </section>
+
+        {/* Info Slider */}
+        <ContentSlider slides={slides} />
 
         {/* Doctors Slider */}
         <DoctorsSlider />

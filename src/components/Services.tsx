@@ -1,11 +1,13 @@
 import { Heart, Brain, Bone, Baby, Eye, Activity } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 import cardiologyImg from "@/assets/service-cardiology.jpg";
 import neurologyImg from "@/assets/service-neurology.jpg";
 import orthopedicsImg from "@/assets/service-orthopedics.jpg";
 
 const services = [
   {
+    id: "cardiology",
     icon: Heart,
     title: "Cardiology",
     description: "Advanced cardiac care with state-of-the-art technology and experienced cardiologists.",
@@ -13,6 +15,7 @@ const services = [
     color: "from-red-500 to-pink-500",
   },
   {
+    id: "neurology",
     icon: Brain,
     title: "Neurology",
     description: "Comprehensive neurological services for brain and nervous system disorders.",
@@ -20,6 +23,7 @@ const services = [
     color: "from-purple-500 to-indigo-500",
   },
   {
+    id: "orthopedics",
     icon: Bone,
     title: "Orthopedics",
     description: "Expert treatment for bone, joint, and musculoskeletal conditions.",
@@ -27,6 +31,7 @@ const services = [
     color: "from-blue-500 to-cyan-500",
   },
   {
+    id: "pediatrics",
     icon: Baby,
     title: "Pediatrics",
     description: "Specialized care for infants, children, and adolescents with compassion.",
@@ -34,6 +39,7 @@ const services = [
     color: "from-green-500 to-emerald-500",
   },
   {
+    id: "ophthalmology",
     icon: Eye,
     title: "Ophthalmology",
     description: "Complete eye care services from routine exams to advanced surgeries.",
@@ -41,6 +47,7 @@ const services = [
     color: "from-amber-500 to-orange-500",
   },
   {
+    id: "emergency-care",
     icon: Activity,
     title: "Emergency Care",
     description: "24/7 emergency services with rapid response and critical care.",
@@ -50,6 +57,8 @@ const services = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -69,6 +78,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={service.title}
+              onClick={() => navigate(`/services/${service.id}`)}
               className="group hover-lift border-0 shadow-lg bg-card overflow-hidden cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
             >

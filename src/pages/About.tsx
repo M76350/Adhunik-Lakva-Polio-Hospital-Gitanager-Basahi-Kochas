@@ -1,9 +1,28 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContentSlider from "@/components/ContentSlider";
 import { Award, Users, Heart, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
+  const slides = [
+    {
+      title: "Our Journey",
+      description: "Founded in 1998, Aadhunik Lakava Polio Hospital has been serving the Buxar community for over 25 years with dedication and compassion. We started as a small clinic and have grown into a trusted healthcare institution.",
+      gradient: "from-primary to-secondary",
+    },
+    {
+      title: "Our Vision",
+      description: "To be the leading healthcare provider in the region, known for excellence in medical care, patient satisfaction, and innovative treatments that improve lives.",
+      gradient: "from-secondary to-accent",
+    },
+    {
+      title: "Our Commitment",
+      description: "We are committed to providing accessible, affordable, and high-quality healthcare to all members of our community, regardless of their background or circumstances.",
+      gradient: "from-accent to-primary",
+    },
+  ];
+
   const values = [
     {
       icon: Heart,
@@ -113,6 +132,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Slider Section */}
+        <ContentSlider slides={slides} />
 
         {/* Mission Section */}
         <section className="container mx-auto px-4 py-20">
