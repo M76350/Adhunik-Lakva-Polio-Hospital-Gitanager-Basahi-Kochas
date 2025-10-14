@@ -1,33 +1,49 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import Gallery from "@/components/Gallery";
+import ContentSlider from "@/components/ContentSlider";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation, Building, Users, Calendar, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
+  const { language } = useLanguage();
+
+  const slides = [
+    {
+      title: language === "en" ? "Get in Touch" : "संपर्क में रहें",
+      description: language === "en" ? "We're here to help with all your healthcare needs" : "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं",
+      gradient: "from-primary to-secondary",
+    },
+    {
+      title: language === "en" ? "24/7 Support" : "24/7 सहायता",
+      description: language === "en" ? "Round-the-clock emergency services available" : "चौबीसों घंटे आपातकालीन सेवाएं उपलब्ध",
+      gradient: "from-secondary to-accent",
+    },
+    {
+      title: language === "en" ? "Easy Access" : "आसान पहुंच",
+      description: language === "en" ? "Multiple ways to reach us for your convenience" : "आपकी सुविधा के लिए हमसे संपर्क करने के कई तरीके",
+      gradient: "from-accent to-primary",
+    },
+  ];
+
   const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Address",
-      content: "123 Healthcare Ave, Medical District, NY 10001",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      content: "+1 (555) 123-4567",
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      content: "info@medicareplus.com",
-    },
-    {
-      icon: Clock,
-      title: "Hours",
-      content: "24/7 Emergency Services Available",
-    },
+    { icon: MapPin, title: language === "en" ? "Address" : "पता", content: language === "en" ? "Geeta Nagar Basahi, Buxar" : "गीता नगर बसाही, बक्सर" },
+    { icon: Phone, title: language === "en" ? "Phone" : "फोन", content: "+91 XXXXX-XXXXX" },
+    { icon: Mail, title: language === "en" ? "Email" : "ईमेल", content: "info@aadhunikhospital.com" },
+    { icon: Clock, title: language === "en" ? "Hours" : "समय", content: language === "en" ? "24/7 Emergency Services" : "24/7 आपातकालीन सेवाएं" },
+    { icon: MessageCircle, title: language === "en" ? "WhatsApp" : "व्हाट्सएप", content: "+91 XXXXX-XXXXX" },
+    { icon: Navigation, title: language === "en" ? "Directions" : "दिशा-निर्देश", content: language === "en" ? "Get Directions" : "दिशा निर्देश प्राप्त करें" },
+  ];
+
+  const features = [
+    { icon: Building, text: language === "en" ? "Modern Facilities" : "आधुनिक सुविधाएं" },
+    { icon: Users, text: language === "en" ? "Experienced Staff" : "अनुभवी स्टाफ" },
+    { icon: Calendar, text: language === "en" ? "Easy Appointments" : "आसान अपॉइंटमेंट" },
+    { icon: Shield, text: language === "en" ? "Safe & Secure" : "सुरक्षित और संरक्षित" },
   ];
 
   return (
@@ -35,120 +51,78 @@ const Contact = () => {
       <Navbar />
       
       <main className="pt-32 pb-20">
-        {/* Hero Section */}
+        {/* Section 1: Hero */}
         <section className="container mx-auto px-4 mb-20">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-              Contact Us
+              {language === "en" ? "Contact Us" : "संपर्क करें"}
             </span>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Get in Touch
+              {language === "en" ? "Get in Touch" : "संपर्क में रहें"}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Have a question or need to schedule an appointment? We're here to help!
+              {language === "en" ? "We're here to help with all your healthcare needs" : "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं"}
             </p>
           </div>
         </section>
 
-        {/* Contact Info Cards */}
-        <section className="container mx-auto px-4 mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {/* Section 2: Slider */}
+        <ContentSlider slides={slides} />
+
+        {/* Section 3: Contact Cards */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {contactInfo.map((info, index) => (
               <Card key={index} className="hover-lift border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {info.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {info.content}
-                  </p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{info.title}</h3>
+                  <p className="text-sm text-muted-foreground">{info.content}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
 
-        {/* Contact Form Section */}
-        <section className="container mx-auto px-4">
+        {/* Section 4: Contact Form */}
+        <section className="container mx-auto px-4 py-20 bg-muted/30">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Form */}
             <Card className="border-0 shadow-xl">
               <CardContent className="p-8">
                 <h2 className="text-3xl font-bold text-foreground mb-6">
-                  Send Us a Message
+                  {language === "en" ? "Send Message" : "संदेश भेजें"}
                 </h2>
                 <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
-                        First Name
-                      </label>
-                      <Input placeholder="John" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
-                        Last Name
-                      </label>
-                      <Input placeholder="Doe" />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">
-                      Email
-                    </label>
-                    <Input type="email" placeholder="john@example.com" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">
-                      Phone
-                    </label>
-                    <Input type="tel" placeholder="+1 (555) 000-0000" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">
-                      Message
-                    </label>
-                    <Textarea 
-                      placeholder="How can we help you?" 
-                      rows={5}
-                    />
-                  </div>
-
-                  <Button className="w-full gradient-primary text-white hover:opacity-90 py-6">
-                    Send Message
+                  <Input placeholder={language === "en" ? "Full Name" : "पूरा नाम"} />
+                  <Input type="email" placeholder={language === "en" ? "Email" : "ईमेल"} />
+                  <Input type="tel" placeholder={language === "en" ? "Phone" : "फोन"} />
+                  <Textarea placeholder={language === "en" ? "Message" : "संदेश"} rows={5} />
+                  <Button className="w-full gradient-primary text-white py-6">
+                    {language === "en" ? "Send Message" : "संदेश भेजें"}
                   </Button>
                 </form>
               </CardContent>
             </Card>
-
-            {/* Map Placeholder */}
             <div className="space-y-6">
-              <Card className="border-0 shadow-xl overflow-hidden h-full">
-                <CardContent className="p-0 h-full">
-                  <div className="w-full h-full min-h-[500px] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold text-foreground mb-2">
-                        Visit Our Hospital
-                      </h3>
-                      <p className="text-muted-foreground max-w-sm">
-                        123 Healthcare Ave<br />
-                        Medical District<br />
-                        New York, NY 10001
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {features.map((feature, index) => (
+                <Card key={index} className="hover-lift">
+                  <CardContent className="p-6 flex items-center gap-4">
+                    <feature.icon className="w-12 h-12 text-primary" />
+                    <p className="font-semibold text-lg">{feature.text}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* Sections 5-10: Additional sections */}
+        <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center mb-8">{language === "en" ? "Visit Us" : "हमें मिलें"}</h2></section>
+        <section className="bg-muted/30 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Emergency Contact" : "आपातकालीन संपर्क"}</h2></section>
+        <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Feedback" : "प्रतिक्रिया"}</h2></section>
+        <Gallery />
       </main>
 
       <Footer />
