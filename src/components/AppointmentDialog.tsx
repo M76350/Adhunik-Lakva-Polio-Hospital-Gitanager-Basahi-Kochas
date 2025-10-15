@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Dialog,
@@ -24,6 +24,11 @@ import { toast } from "@/hooks/use-toast";
 interface AppointmentDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  preselectedDoctor?: {
+    id: string;
+    name: string;
+    specialty: string;
+  };
 }
 
 const doctors = [
@@ -31,6 +36,8 @@ const doctors = [
   { id: "2", name: "Dr. Priya Sharma", nameHi: "डॉ. प्रिया शर्मा", specialty: "Neurology / न्यूरोलॉजी" },
   { id: "3", name: "Dr. Amit Singh", nameHi: "डॉ. अमित सिंह", specialty: "Pediatrics / बाल रोग" },
   { id: "4", name: "Dr. Sunita Devi", nameHi: "डॉ. सुनीता देवी", specialty: "General Medicine / सामान्य चिकित्सा" },
+  { id: "5", name: "Dr. Manoj Verma", nameHi: "डॉ. मनोज वर्मा", specialty: "Physiotherapy / फिजियोथेरेपी" },
+  { id: "6", name: "Dr. Anjali Gupta", nameHi: "डॉ. अंजलि गुप्ता", specialty: "Gynecology / स्त्री रोग" },
 ];
 
 const timeSlots = [
@@ -38,7 +45,7 @@ const timeSlots = [
   "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"
 ];
 
-const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
+const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: AppointmentDialogProps) => {
   const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -49,6 +56,13 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     doctor: "",
     symptoms: "",
   });
+
+  // Pre-fill doctor when dialog opens with preselected doctor
+  useEffect(() => {
+    if (preselectedDoctor && open) {
+      setFormData(prev => ({ ...prev, doctor: preselectedDoctor.id }));
+    }
+  }, [preselectedDoctor, open]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

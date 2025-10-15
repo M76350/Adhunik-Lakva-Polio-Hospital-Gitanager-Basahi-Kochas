@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import AppointmentDialog from "@/components/AppointmentDialog";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
@@ -109,10 +110,28 @@ const doctors = [
 const DoctorsGallery = () => {
   const { t, language } = useLanguage();
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
+
+  const handleDoctorClick = (doctorId: number) => {
+    setSelectedDoctor(doctorId);
+    setAppointmentOpen(true);
+  };
+
+  const selectedDoctorData = doctors.find(d => d.id === selectedDoctor);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background to-primary/5">
-      <div className="container mx-auto px-4">
+    <>
+      <AppointmentDialog 
+        open={appointmentOpen} 
+        onOpenChange={setAppointmentOpen}
+        preselectedDoctor={selectedDoctorData ? {
+          id: selectedDoctorData.id.toString(),
+          name: language === "en" ? selectedDoctorData.name : selectedDoctorData.nameHi,
+          specialty: language === "en" ? selectedDoctorData.specialty : selectedDoctorData.specialtyHi
+        } : undefined}
+      />
+      <section className="py-20 bg-gradient-to-br from-background to-primary/5">
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
             {t("ourDoctors")}
@@ -131,7 +150,7 @@ const DoctorsGallery = () => {
               key={doctor.id}
               className="hover-lift border-0 shadow-xl bg-card overflow-hidden group cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => setSelectedDoctor(doctor.id)}
+              onClick={() => handleDoctorClick(doctor.id)}
             >
               <CardContent className="p-0">
                 {/* Doctor Image */}
@@ -202,6 +221,7 @@ const DoctorsGallery = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

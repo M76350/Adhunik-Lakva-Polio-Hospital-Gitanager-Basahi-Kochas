@@ -79,11 +79,11 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <main className="pt-20">
-        {/* Section 1: Hero */}
-        <Hero />
-
-        {/* Section 2: Content Slider */}
+        {/* Section 1: Content Slider */}
         <ContentSlider slides={sliderContent} />
+
+        {/* Section 2: Hero */}
+        <Hero />
 
         {/* Section 3: Features */}
         <section className="py-20 bg-background">

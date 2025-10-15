@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
 
 interface Slide {
   title: string;
@@ -24,6 +25,14 @@ const ContentSlider = ({ slides }: ContentSliderProps) => {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
+
+  // Auto-slide right to left
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <section className="py-16 bg-background relative overflow-hidden">
