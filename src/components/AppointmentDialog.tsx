@@ -64,7 +64,7 @@ const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: Appointmen
     }
   }, [preselectedDoctor, open]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -75,6 +75,31 @@ const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: Appointmen
         variant: "destructive",
       });
       return;
+    }
+
+    // Get webhook URL from localStorage
+    const webhookUrl = localStorage.getItem('zapier_webhook_url');
+    
+    if (webhookUrl) {
+      try {
+        // Send to Zapier webhook (which will add to Google Sheets)
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            ...formData,
+            doctorName: doctors.find(d => d.id === formData.doctor)?.[language === "en" ? "name" : "nameHi"] || "",
+            timestamp: new Date().toISOString(),
+            submittedFrom: window.location.origin,
+          }),
+        });
+        console.log("Data sent to webhook successfully");
+      } catch (error) {
+        console.error("Error sending to webhook:", error);
+      }
     }
 
     // Here you would typically send this data to your backend
