@@ -7,13 +7,15 @@ import Gallery from "@/components/Gallery";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, GraduationCap, Users, Heart, Trophy, BookOpen, Clock, Globe, Star, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import doctor1 from "@/assets/doctor-1.jpg";
+import doctor2 from "@/assets/doctor-2.jpg";
 
 const Doctors = () => {
   const { language } = useLanguage();
 
   const heroSlides = [
     {
-      image: "/src/assets/doctor-1.jpg",
+      image: doctor1,
       title: language === "en" ? "Meet Our Expert Medical Team" : "हमारी विशेषज्ञ चिकित्सा टीम से मिलें",
       subtitle: language === "en" ? "Our Doctors" : "हमारे डॉक्टर",
       description: language === "en"
@@ -21,7 +23,7 @@ const Doctors = () => {
         : "हमारी उच्च योग्य और अनुभवी डॉक्टरों की टीम आपको सर्वोत्तम संभव देखभाल प्रदान करने के लिए प्रतिबद्ध है।",
     },
     {
-      image: "/src/assets/doctor-2.jpg",
+      image: doctor2,
       title: language === "en" ? "Specialized Medical Expertise" : "विशेष चिकित्सा विशेषज्ञता",
       subtitle: language === "en" ? "Expert Care" : "विशेषज्ञ देखभाल",
       description: language === "en"

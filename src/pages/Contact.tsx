@@ -9,13 +9,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import heroHospital from "@/assets/hero-hospital.jpg";
+import serviceCardiology from "@/assets/service-cardiology.jpg";
 
 const Contact = () => {
   const { language } = useLanguage();
 
   const heroSlides = [
     {
-      image: "/src/assets/hero-hospital.jpg",
+      image: heroHospital,
       title: language === "en" ? "Get in Touch" : "संपर्क में रहें",
       subtitle: language === "en" ? "Contact Us" : "संपर्क करें",
       description: language === "en" 
@@ -23,7 +25,7 @@ const Contact = () => {
         : "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं। किसी भी समय हमसे संपर्क करें।",
     },
     {
-      image: "/src/assets/service-cardiology.jpg",
+      image: serviceCardiology,
       title: language === "en" ? "24/7 Support" : "24/7 सहायता",
       subtitle: language === "en" ? "Always Available" : "हमेशा उपलब्ध",
       description: language === "en" 

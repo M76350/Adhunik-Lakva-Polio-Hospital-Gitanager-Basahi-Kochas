@@ -7,13 +7,15 @@ import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { CheckCircle, Heart, Activity, Brain, Bone, Eye, Stethoscope, Syringe, Award, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import serviceCardiology from "@/assets/service-cardiology.jpg";
+import serviceNeurology from "@/assets/service-neurology.jpg";
 
 const ServicesPage = () => {
   const { language } = useLanguage();
 
   const heroSlides = [
     {
-      image: "/src/assets/service-cardiology.jpg",
+      image: serviceCardiology,
       title: language === "en" ? "Comprehensive Healthcare Services" : "व्यापक स्वास्थ्य सेवाएं",
       subtitle: language === "en" ? "Our Services" : "हमारी सेवाएं",
       description: language === "en"
@@ -21,7 +23,7 @@ const ServicesPage = () => {
         : "नियमित जांच से लेकर विशेष उपचार तक, हम चिकित्सा सेवाओं की पूरी श्रृंखला प्रदान करते हैं।",
     },
     {
-      image: "/src/assets/service-neurology.jpg",
+      image: serviceNeurology,
       title: language === "en" ? "Advanced Medical Care" : "उन्नत चिकित्सा देखभाल",
       subtitle: language === "en" ? "Expert Treatment" : "विशेषज्ञ उपचार",
       description: language === "en"

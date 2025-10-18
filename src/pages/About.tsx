@@ -6,13 +6,15 @@ import Gallery from "@/components/Gallery";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import heroHospital from "@/assets/hero-hospital.jpg";
+import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
 
 const About = () => {
   const { language } = useLanguage();
 
   const heroSlides = [
     {
-      image: "/src/assets/hero-hospital.jpg",
+      image: heroHospital,
       title: language === "en" ? "Caring for Your Health Since 1998" : "1998 से आपके स्वास्थ्य की देखभाल",
       subtitle: language === "en" ? "About Us" : "हमारे बारे में",
       description: language === "en"
@@ -20,7 +22,7 @@ const About = () => {
         : "आधुनिक लकवा पोलियो अस्पताल 25 से अधिक वर्षों से एक विश्वसनीय स्वास्थ्य सेवा प्रदाता रहा है।",
     },
     {
-      image: "/src/assets/service-orthopedics.jpg",
+      image: serviceOrthopedics,
       title: language === "en" ? "Excellence in Medical Care" : "चिकित्सा देखभाल में उत्कृष्टता",
       subtitle: language === "en" ? "Our Mission" : "हमारा मिशन",
       description: language === "en"

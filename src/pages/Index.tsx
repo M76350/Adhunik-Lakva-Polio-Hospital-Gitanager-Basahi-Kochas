@@ -14,13 +14,16 @@ import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Heart, Clock, Shield, Users, Activity } from "lucide-react";
+import heroHospital from "@/assets/hero-hospital.jpg";
+import serviceCardiology from "@/assets/service-cardiology.jpg";
+import serviceNeurology from "@/assets/service-neurology.jpg";
 
 const Index = () => {
   const { language } = useLanguage();
 
   const heroSlides = [
     {
-      image: "/src/assets/hero-hospital.jpg",
+      image: heroHospital,
       title: language === "en" ? "Excellence in Healthcare" : "स्वास्थ्य सेवा में उत्कृष्टता",
       subtitle: language === "en" ? "Trusted Medical Care" : "विश्वसनीय चिकित्सा देखभाल",
       description: language === "en" 
@@ -28,7 +31,7 @@ const Index = () => {
         : "हम 25 से अधिक वर्षों से बक्सर समुदाय को पोलियो उपचार और पुनर्वास में विशेष देखभाल प्रदान कर रहे हैं।",
     },
     {
-      image: "/src/assets/service-cardiology.jpg",
+      image: serviceCardiology,
       title: language === "en" ? "Advanced Treatment Facilities" : "उन्नत उपचार सुविधाएं",
       subtitle: language === "en" ? "Modern Healthcare" : "आधुनिक स्वास्थ्य सेवा",
       description: language === "en"
@@ -36,7 +39,7 @@ const Index = () => {
         : "आपकी रिकवरी के लिए समर्पित अत्याधुनिक उपकरण और अनुभवी चिकित्सा पेशेवर।",
     },
     {
-      image: "/src/assets/service-neurology.jpg",
+      image: serviceNeurology,
       title: language === "en" ? "Patient-Centered Care" : "रोगी-केंद्रित देखभाल",
       subtitle: language === "en" ? "Your Health, Our Priority" : "आपका स्वास्थ्य, हमारी प्राथमिकता",
       description: language === "en"
