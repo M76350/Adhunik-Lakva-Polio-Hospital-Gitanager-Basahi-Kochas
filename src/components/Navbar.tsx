@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Heart, Languages } from "lucide-react";
+import { Menu, X, Heart, Languages, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "next-themes";
 import AppointmentDialog from "./AppointmentDialog";
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
   const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
+  const { theme, setTheme } = useTheme();
 
   const navLinks = [
     { path: "/", label: t("home") },
@@ -26,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2 group">
@@ -70,6 +72,17 @@ const Navbar = () => {
               <Languages className="w-4 h-4" />
               {language === "en" ? "हिन्दी" : "English"}
             </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </Button>
             <Button 
               className="gradient-primary text-white hover:opacity-90 transition-opacity"
               onClick={() => setAppointmentOpen(true)}
@@ -112,6 +125,23 @@ const Navbar = () => {
               >
                 <Languages className="w-4 h-4" />
                 {language === "en" ? "हिन्दी" : "English"}
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="w-full gap-2"
+              >
+                {theme === "dark" ? (
+                  <>
+                    <Sun className="w-4 h-4" />
+                    Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4" />
+                    Dark Mode
+                  </>
+                )}
               </Button>
               <Button 
                 className="gradient-primary text-white w-full"

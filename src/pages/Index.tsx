@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
 import DoctorsGallery from "@/components/DoctorsGallery";
 import Testimonials from "@/components/Testimonials";
@@ -17,6 +17,33 @@ import { Award, Heart, Clock, Shield, Users, Activity } from "lucide-react";
 
 const Index = () => {
   const { language } = useLanguage();
+
+  const heroSlides = [
+    {
+      image: "/src/assets/hero-hospital.jpg",
+      title: language === "en" ? "Excellence in Healthcare" : "स्वास्थ्य सेवा में उत्कृष्टता",
+      subtitle: language === "en" ? "Trusted Medical Care" : "विश्वसनीय चिकित्सा देखभाल",
+      description: language === "en" 
+        ? "We have been serving the Buxar community for over 25 years with specialized care in polio treatment and rehabilitation."
+        : "हम 25 से अधिक वर्षों से बक्सर समुदाय को पोलियो उपचार और पुनर्वास में विशेष देखभाल प्रदान कर रहे हैं।",
+    },
+    {
+      image: "/src/assets/service-cardiology.jpg",
+      title: language === "en" ? "Advanced Treatment Facilities" : "उन्नत उपचार सुविधाएं",
+      subtitle: language === "en" ? "Modern Healthcare" : "आधुनिक स्वास्थ्य सेवा",
+      description: language === "en"
+        ? "State-of-the-art equipment and experienced medical professionals dedicated to your recovery."
+        : "आपकी रिकवरी के लिए समर्पित अत्याधुनिक उपकरण और अनुभवी चिकित्सा पेशेवर।",
+    },
+    {
+      image: "/src/assets/service-neurology.jpg",
+      title: language === "en" ? "Patient-Centered Care" : "रोगी-केंद्रित देखभाल",
+      subtitle: language === "en" ? "Your Health, Our Priority" : "आपका स्वास्थ्य, हमारी प्राथमिकता",
+      description: language === "en"
+        ? "Compassionate care tailored to each patient's unique needs and circumstances."
+        : "प्रत्येक रोगी की अनूठी जरूरतों और परिस्थितियों के अनुरूप दयालु देखभाल।",
+    },
+  ];
 
   const sliderContent = [
     {
@@ -78,12 +105,12 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="pt-20">
-        {/* Section 1: Content Slider */}
-        <ContentSlider slides={sliderContent} />
+      <main>
+        {/* Section 1: Hero Slider */}
+        <HeroSlider slides={heroSlides} />
 
-        {/* Section 2: Hero */}
-        <Hero />
+        {/* Section 2: Content Slider */}
+        <ContentSlider slides={sliderContent} />
 
         {/* Section 3: Features */}
         <section className="py-20 bg-background">

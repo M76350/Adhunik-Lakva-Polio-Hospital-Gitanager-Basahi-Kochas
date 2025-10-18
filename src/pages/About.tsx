@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 import ContentSlider from "@/components/ContentSlider";
 import Gallery from "@/components/Gallery";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,6 +9,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   const { language } = useLanguage();
+
+  const heroSlides = [
+    {
+      image: "/src/assets/hero-hospital.jpg",
+      title: language === "en" ? "Caring for Your Health Since 1998" : "1998 से आपके स्वास्थ्य की देखभाल",
+      subtitle: language === "en" ? "About Us" : "हमारे बारे में",
+      description: language === "en"
+        ? "Aadhunik Lakava Polio Hospital has been a trusted healthcare provider for over 25 years."
+        : "आधुनिक लकवा पोलियो अस्पताल 25 से अधिक वर्षों से एक विश्वसनीय स्वास्थ्य सेवा प्रदाता रहा है।",
+    },
+    {
+      image: "/src/assets/service-orthopedics.jpg",
+      title: language === "en" ? "Excellence in Medical Care" : "चिकित्सा देखभाल में उत्कृष्टता",
+      subtitle: language === "en" ? "Our Mission" : "हमारा मिशन",
+      description: language === "en"
+        ? "Providing accessible, compassionate, and innovative healthcare services to our community."
+        : "हमारे समुदाय को सुलभ, दयालु और अभिन्न स्वास्थ्य सेवाएं प्रदान करना।",
+    },
+  ];
 
   const slides = [
     {
@@ -50,12 +70,15 @@ const About = () => {
     <div className="min-h-screen animate-fade-in">
       <Navbar />
       
-      <main className="pt-20 pb-20">
-        {/* Section 1: Slider */}
+      <main>
+        {/* Section 1: Hero Slider */}
+        <HeroSlider slides={heroSlides} />
+
+        {/* Section 2: Content Slider */}
         <ContentSlider slides={slides} />
 
-        {/* Section 2: Hero */}
-        <section className="container mx-auto px-4 mb-20">
+        {/* Section 3: Story */}
+        <section className="container mx-auto px-4 mb-20 mt-20">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
               {language === "en" ? "About Us" : "हमारे बारे में"}
@@ -102,7 +125,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 3: Values */}
+        {/* Section 4: Values */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -126,10 +149,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 4: Slider */}
-        <ContentSlider slides={slides} />
-
-        {/* Section 5: Mission */}
+        {/* Section 6: Mission */}
         <section className="container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-foreground mb-6">
@@ -143,7 +163,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 6: Achievements */}
+        {/* Section 7: Achievements */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-foreground text-center mb-12">
@@ -175,7 +195,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 7: Team Culture */}
+        {/* Section 8: Team Culture */}
         <section className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold text-foreground text-center mb-12">
             {language === "en" ? "Our Team Culture" : "हमारी टीम संस्कृति"}
@@ -189,7 +209,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 8: Community Impact */}
+        {/* Section 9: Community Impact */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-foreground text-center mb-12">
@@ -205,7 +225,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 9: Technology & Innovation */}
+        {/* Section 10: Technology & Innovation */}
         <section className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold text-foreground text-center mb-12">
             {language === "en" ? "Technology & Innovation" : "प्रौद्योगिकी और नवाचार"}
@@ -219,7 +239,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 10: Gallery */}
+        {/* Section 11: Gallery */}
         <Gallery />
       </main>
 

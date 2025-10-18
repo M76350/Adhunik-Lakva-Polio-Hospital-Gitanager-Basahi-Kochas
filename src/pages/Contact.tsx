@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 import Gallery from "@/components/Gallery";
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,6 +12,25 @@ import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
   const { language } = useLanguage();
+
+  const heroSlides = [
+    {
+      image: "/src/assets/hero-hospital.jpg",
+      title: language === "en" ? "Get in Touch" : "संपर्क में रहें",
+      subtitle: language === "en" ? "Contact Us" : "संपर्क करें",
+      description: language === "en" 
+        ? "We're here to help with all your healthcare needs. Reach out to us anytime."
+        : "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं। किसी भी समय हमसे संपर्क करें।",
+    },
+    {
+      image: "/src/assets/service-cardiology.jpg",
+      title: language === "en" ? "24/7 Support" : "24/7 सहायता",
+      subtitle: language === "en" ? "Always Available" : "हमेशा उपलब्ध",
+      description: language === "en" 
+        ? "Round-the-clock emergency services and support available for you."
+        : "चौबीसों घंटे आपातकालीन सेवाएं और सहायता आपके लिए उपलब्ध।",
+    },
+  ];
 
   const slides = [
     {
@@ -50,12 +70,15 @@ const Contact = () => {
     <div className="min-h-screen animate-fade-in">
       <Navbar />
       
-      <main className="pt-20 pb-20">
-        {/* Section 1: Slider */}
+      <main>
+        {/* Section 1: Hero Slider */}
+        <HeroSlider slides={heroSlides} />
+
+        {/* Section 2: Content Slider */}
         <ContentSlider slides={slides} />
 
-        {/* Section 2: Hero */}
-        <section className="container mx-auto px-4 mb-20">
+        {/* Section 3: Contact Cards */}
+        <section className="container mx-auto px-4 mb-20 mt-20">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
               {language === "en" ? "Contact Us" : "संपर्क करें"}

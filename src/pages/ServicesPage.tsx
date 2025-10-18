@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import ContentSlider from "@/components/ContentSlider";
@@ -9,6 +10,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const ServicesPage = () => {
   const { language } = useLanguage();
+
+  const heroSlides = [
+    {
+      image: "/src/assets/service-cardiology.jpg",
+      title: language === "en" ? "Comprehensive Healthcare Services" : "व्यापक स्वास्थ्य सेवाएं",
+      subtitle: language === "en" ? "Our Services" : "हमारी सेवाएं",
+      description: language === "en"
+        ? "From routine check-ups to specialized treatments, we offer a complete range of medical services."
+        : "नियमित जांच से लेकर विशेष उपचार तक, हम चिकित्सा सेवाओं की पूरी श्रृंखला प्रदान करते हैं।",
+    },
+    {
+      image: "/src/assets/service-neurology.jpg",
+      title: language === "en" ? "Advanced Medical Care" : "उन्नत चिकित्सा देखभाल",
+      subtitle: language === "en" ? "Expert Treatment" : "विशेषज्ञ उपचार",
+      description: language === "en"
+        ? "We offer the latest treatment methods and technologies for better patient outcomes."
+        : "हम बेहतर रोगी परिणामों के लिए नवीनतम उपचार विधियां और प्रौद्योगिकियां प्रदान करते हैं।",
+    },
+  ];
 
   const slides = [
     {
@@ -60,12 +80,15 @@ const ServicesPage = () => {
     <div className="min-h-screen animate-fade-in">
       <Navbar />
       
-      <main className="pt-20 pb-20">
-        {/* Section 1: Slider */}
+      <main>
+        {/* Section 1: Hero Slider */}
+        <HeroSlider slides={heroSlides} />
+
+        {/* Section 2: Content Slider */}
         <ContentSlider slides={slides} />
 
-        {/* Section 2: Hero */}
-        <section className="container mx-auto px-4 mb-20">
+        {/* Section 3: Services Grid */}
+        <section className="container mx-auto px-4 mb-20 mt-20">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
               {language === "en" ? "Our Services" : "हमारी सेवाएं"}

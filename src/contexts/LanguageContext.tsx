@@ -17,6 +17,7 @@ const translations = {
     doctors: "Doctors",
     contact: "Contact",
     bookAppointment: "Book Appointment",
+    learnMore: "Learn More",
     
     // Hero
     tagline: "Your Health, Our Priority",
@@ -89,6 +90,7 @@ const translations = {
     doctors: "डॉक्टर",
     contact: "संपर्क करें",
     bookAppointment: "अपॉइंटमेंट बुक करें",
+    learnMore: "और जानें",
     
     // Hero
     tagline: "आपका स्वास्थ्य, हमारी प्राथमिकता",

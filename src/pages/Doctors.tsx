@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroSlider from "@/components/HeroSlider";
 import DoctorsSlider from "@/components/DoctorsSlider";
 import ContentSlider from "@/components/ContentSlider";
 import Gallery from "@/components/Gallery";
@@ -9,6 +10,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Doctors = () => {
   const { language } = useLanguage();
+
+  const heroSlides = [
+    {
+      image: "/src/assets/doctor-1.jpg",
+      title: language === "en" ? "Meet Our Expert Medical Team" : "हमारी विशेषज्ञ चिकित्सा टीम से मिलें",
+      subtitle: language === "en" ? "Our Doctors" : "हमारे डॉक्टर",
+      description: language === "en"
+        ? "Our team of highly qualified and experienced doctors is committed to providing you with the best possible care."
+        : "हमारी उच्च योग्य और अनुभवी डॉक्टरों की टीम आपको सर्वोत्तम संभव देखभाल प्रदान करने के लिए प्रतिबद्ध है।",
+    },
+    {
+      image: "/src/assets/doctor-2.jpg",
+      title: language === "en" ? "Specialized Medical Expertise" : "विशेष चिकित्सा विशेषज्ञता",
+      subtitle: language === "en" ? "Expert Care" : "विशेषज्ञ देखभाल",
+      description: language === "en"
+        ? "Each doctor specializes in specific areas of medicine, ensuring expert treatment tailored to your needs."
+        : "प्रत्येक डॉक्टर चिकित्सा के विशिष्ट क्षेत्रों में विशेषज्ञता रखता है, जो आपकी जरूरतों के अनुरूप विशेषज्ञ उपचार सुनिश्चित करता है।",
+    },
+  ];
 
   const slides = [
     {
@@ -51,12 +71,15 @@ const Doctors = () => {
     <div className="min-h-screen animate-fade-in">
       <Navbar />
       
-      <main className="pt-20 pb-20">
-        {/* Section 1: Slider */}
+      <main>
+        {/* Section 1: Hero Slider */}
+        <HeroSlider slides={heroSlides} />
+
+        {/* Section 2: Content Slider */}
         <ContentSlider slides={slides} />
 
-        {/* Section 2: Hero */}
-        <section className="container mx-auto px-4 mb-20">
+        {/* Section 3: Highlights */}
+        <section className="container mx-auto px-4 mb-20 mt-20">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
               {language === "en" ? "Our Doctors" : "हमारे डॉक्टर"}
@@ -72,11 +95,8 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 2: Slider */}
-        <ContentSlider slides={slides} />
-
-        {/* Section 3: Highlights */}
-        <section className="container mx-auto px-4 py-20 bg-muted/30">
+        {/* Section 4: Highlights */}
+        <section className="bg-muted/30 py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {highlights.map((highlight, index) => (
               <Card key={index} className="border-0 shadow-lg hover-lift">
@@ -92,10 +112,10 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 4: Doctors Slider */}
+        {/* Section 5: Doctors Slider */}
         <DoctorsSlider />
 
-        {/* Section 5: Specializations */}
+        {/* Section 6: Specializations */}
         <section className="container mx-auto px-4 py-20 bg-muted/30">
           <h2 className="text-4xl font-bold text-foreground text-center mb-12">
             {language === "en" ? "Our Specializations" : "हमारी विशेषज्ञताएं"}
@@ -113,7 +133,7 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 6: Training & Education */}
+        {/* Section 7: Training & Education */}
         <section className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold text-foreground text-center mb-12">
             {language === "en" ? "Training & Education" : "प्रशिक्षण और शिक्षा"}
@@ -127,7 +147,7 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 7: Patient Care Philosophy */}
+        {/* Section 8: Patient Care Philosophy */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-foreground text-center mb-12">
@@ -143,7 +163,7 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 8: Consultation Process */}
+        {/* Section 9: Consultation Process */}
         <section className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold text-foreground text-center mb-12">
             {language === "en" ? "Consultation Process" : "परामर्श प्रक्रिया"}
@@ -157,7 +177,7 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 9: Success Stories */}
+        {/* Section 10: Success Stories */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-foreground text-center mb-12">
@@ -173,7 +193,7 @@ const Doctors = () => {
           </div>
         </section>
 
-        {/* Section 10: Gallery */}
+        {/* Section 11: Gallery */}
         <Gallery />
 
         {/* CTA Section */}
