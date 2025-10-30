@@ -77,8 +77,22 @@ const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: Appointmen
       return;
     }
 
-    // Get webhook URL from localStorage
+    // Get webhook URL from localStorage or use default
     const webhookUrl = localStorage.getItem('zapier_webhook_url');
+    
+    const appointmentData = {
+      fullName: formData.fullName,
+      phone: formData.phone,
+      email: formData.email,
+      date: formData.date,
+      time: formData.time,
+      doctor: doctors.find(d => d.id === formData.doctor)?.[language === "en" ? "name" : "nameHi"] || "",
+      specialty: doctors.find(d => d.id === formData.doctor)?.specialty || "",
+      symptoms: formData.symptoms,
+      timestamp: new Date().toISOString(),
+      submittedFrom: window.location.origin,
+      recipientEmail: "maniskumar09112002@gmail.com"
+    };
     
     if (webhookUrl) {
       try {
@@ -89,12 +103,7 @@ const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: Appointmen
             "Content-Type": "application/json",
           },
           mode: "no-cors",
-          body: JSON.stringify({
-            ...formData,
-            doctorName: doctors.find(d => d.id === formData.doctor)?.[language === "en" ? "name" : "nameHi"] || "",
-            timestamp: new Date().toISOString(),
-            submittedFrom: window.location.origin,
-          }),
+          body: JSON.stringify(appointmentData),
         });
         console.log("Data sent to webhook successfully");
       } catch (error) {
@@ -102,8 +111,8 @@ const AppointmentDialog = ({ open, onOpenChange, preselectedDoctor }: Appointmen
       }
     }
 
-    // Here you would typically send this data to your backend
-    console.log("Appointment Data:", formData);
+    // Log JSON data for debugging
+    console.log("Appointment Data (JSON):", JSON.stringify(appointmentData, null, 2));
     
     toast({
       title: language === "en" ? "Success!" : "सफलता!",

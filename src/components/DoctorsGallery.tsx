@@ -111,8 +111,17 @@ const DoctorsGallery = () => {
   const { t, language } = useLanguage();
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
   const [appointmentOpen, setAppointmentOpen] = useState(false);
+  const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
+  const [selectedImageDoctor, setSelectedImageDoctor] = useState<typeof doctors[0] | null>(null);
 
-  const handleDoctorClick = (doctorId: number) => {
+  const handleImageClick = (e: React.MouseEvent, doctor: typeof doctors[0]) => {
+    e.stopPropagation();
+    setSelectedImageDoctor(doctor);
+    setImageGalleryOpen(true);
+  };
+
+  const handleBookClick = (e: React.MouseEvent, doctorId: number) => {
+    e.stopPropagation();
     setSelectedDoctor(doctorId);
     setAppointmentOpen(true);
   };
@@ -130,6 +139,83 @@ const DoctorsGallery = () => {
           specialty: language === "en" ? selectedDoctorData.specialty : selectedDoctorData.specialtyHi
         } : undefined}
       />
+
+      {/* Image Gallery Modal */}
+      {imageGalleryOpen && selectedImageDoctor && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          onClick={() => setImageGalleryOpen(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setImageGalleryOpen(false)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-card rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src={selectedImageDoctor.image}
+                alt={language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
+                className="w-full h-auto max-h-[80vh] object-contain"
+              />
+              <div className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10">
+                <h3 className="text-3xl font-bold text-foreground mb-2">
+                  {language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
+                </h3>
+                <p className="text-xl text-muted-foreground mb-4">
+                  {language === "en" ? selectedImageDoctor.specialty : selectedImageDoctor.specialtyHi}
+                </p>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      {language === "en" ? "Education" : "शिक्षा"}
+                    </p>
+                    <p className="font-semibold text-foreground">
+                      {language === "en" ? selectedImageDoctor.education : selectedImageDoctor.educationHi}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      {language === "en" ? "Experience" : "अनुभव"}
+                    </p>
+                    <p className="font-semibold text-foreground">
+                      {language === "en" ? selectedImageDoctor.experience : selectedImageDoctor.experienceHi}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      {language === "en" ? "Rating" : "रेटिंग"}
+                    </p>
+                    <p className="font-semibold text-foreground flex items-center gap-1">
+                      {selectedImageDoctor.rating} <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      {language === "en" ? "Patients" : "मरीज"}
+                    </p>
+                    <p className="font-semibold text-foreground">{selectedImageDoctor.patients}</p>
+                  </div>
+                </div>
+                <Button 
+                  className="w-full gradient-primary text-white"
+                  onClick={() => {
+                    setImageGalleryOpen(false);
+                    handleBookClick({ stopPropagation: () => {} } as any, selectedImageDoctor.id);
+                  }}
+                >
+                  {t("bookAppointment")}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <section className="py-20 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
@@ -148,13 +234,15 @@ const DoctorsGallery = () => {
           {doctors.map((doctor, index) => (
             <Card
               key={doctor.id}
-              className="hover-lift border-0 shadow-xl bg-card overflow-hidden group cursor-pointer"
+              className="hover-lift border-0 shadow-xl bg-card overflow-hidden group"
               style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => handleDoctorClick(doctor.id)}
             >
               <CardContent className="p-0">
                 {/* Doctor Image */}
-                <div className="relative h-80 overflow-hidden">
+                <div 
+                  className="relative h-80 overflow-hidden cursor-pointer"
+                  onClick={(e) => handleImageClick(e, doctor)}
+                >
                   <img
                     src={doctor.image}
                     alt={language === "en" ? doctor.name : doctor.nameHi}
@@ -211,7 +299,10 @@ const DoctorsGallery = () => {
                     </div>
                   </div>
 
-                  <Button className="w-full gradient-primary text-white hover:opacity-90">
+                  <Button 
+                    className="w-full gradient-primary text-white hover:opacity-90"
+                    onClick={(e) => handleBookClick(e, doctor.id)}
+                  >
                     {t("bookAppointment")}
                   </Button>
                 </div>
