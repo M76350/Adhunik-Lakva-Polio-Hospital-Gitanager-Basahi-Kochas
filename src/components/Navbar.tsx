@@ -25,7 +25,10 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "hi" : "en");
+    const langs: ("en" | "hi" | "bho")[] = ["en", "hi", "bho"];
+    const currentIndex = langs.indexOf(language);
+    const nextIndex = (currentIndex + 1) % langs.length;
+    setLanguage(langs[nextIndex]);
   };
 
   return (
@@ -56,11 +59,11 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-200 hover:text-primary hover:text-base relative ${
+                className={`text-sm transition-all duration-200 hover:text-primary hover:text-base relative ${
                   isActive(link.path)
                     ? "text-primary"
                     : "text-foreground/70"
-                }`}
+                } ${language === "hi" ? "font-semibold" : "font-medium"}`}
               >
                 {link.label}
                 {isActive(link.path) && (
@@ -75,7 +78,7 @@ const Navbar = () => {
               className="gap-2"
             >
               <Languages className="w-4 h-4" />
-              {language === "en" ? "हिन्दी" : "English"}
+              {language === "en" ? "हिं" : language === "hi" ? "भो" : "EN"}
             </Button>
             <Button
               variant="outline"
@@ -114,11 +117,11 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:text-base ${
+                  className={`px-4 py-2 rounded-lg text-sm transition-all duration-200 hover:text-base ${
                     isActive(link.path)
                       ? "bg-primary text-white"
                       : "hover:bg-muted"
-                  }`}
+                  } ${language === "hi" ? "font-semibold" : "font-medium"}`}
                 >
                   {link.label}
                 </Link>
@@ -129,7 +132,7 @@ const Navbar = () => {
                 className="w-full gap-2"
               >
                 <Languages className="w-4 h-4" />
-                {language === "en" ? "हिन्दी" : "English"}
+                {language === "en" ? "हिं" : language === "hi" ? "भो" : "EN"}
               </Button>
               <Button
                 variant="outline"

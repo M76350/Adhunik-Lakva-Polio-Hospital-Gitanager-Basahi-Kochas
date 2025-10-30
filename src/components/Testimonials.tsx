@@ -1,40 +1,42 @@
 import { Quote, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const testimonials = [
-  {
-    name: "John Anderson",
-    role: "Patient",
-    content: "The care I received was exceptional. The doctors were attentive, professional, and truly cared about my recovery. I'm grateful for the amazing team!",
-    rating: 5,
-  },
-  {
-    name: "Maria Garcia",
-    role: "Patient",
-    content: "From the moment I walked in, I felt welcomed and cared for. The facilities are modern, and the staff is incredibly knowledgeable. Highly recommend!",
-    rating: 5,
-  },
-  {
-    name: "David Thompson",
-    role: "Patient",
-    content: "Outstanding medical care! The doctors took the time to explain everything clearly. The follow-up care was excellent too. Thank you, MediCare Plus!",
-    rating: 5,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      nameKey: "testimonialName1",
+      roleKey: "testimonialsPatient",
+      contentKey: "testimonial1",
+      rating: 5,
+    },
+    {
+      nameKey: "testimonialName2",
+      roleKey: "testimonialsPatient",
+      contentKey: "testimonial2",
+      rating: 5,
+    },
+    {
+      nameKey: "testimonialName3",
+      roleKey: "testimonialsPatient",
+      contentKey: "testimonial3",
+      rating: 5,
+    },
+  ];
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-            Testimonials
+            {t("testimonials")}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            What Our Patients Say
+            {t("patientSays")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real stories from real people who trusted us with their health
+            {t("testimonialsDescription")}
           </p>
         </div>
 
@@ -60,17 +62,17 @@ const Testimonials = () => {
 
                 {/* Content */}
                 <p className="text-muted-foreground leading-relaxed mb-6 relative z-10">
-                  "{testimonial.content}"
+                  "{t(testimonial.contentKey)}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.name.charAt(0)}
+                    {t(testimonial.nameKey).charAt(0)}
                   </div>
                   <div>
-                    <div className="font-semibold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                    <div className="font-semibold text-foreground">{t(testimonial.nameKey)}</div>
+                    <div className="text-sm text-muted-foreground">{t(testimonial.roleKey)}</div>
                   </div>
                 </div>
               </CardContent>
