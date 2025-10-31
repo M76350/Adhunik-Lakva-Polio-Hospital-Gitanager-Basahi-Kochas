@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Heart, Brain, Bone, Baby, Eye, Activity, CheckCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, Heart, Brain, Bone, Baby, Eye, Activity, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import cardiologyImg from "@/assets/service-cardiology.jpg";
 import neurologyImg from "@/assets/service-neurology.jpg";
 import orthopedicsImg from "@/assets/service-orthopedics.jpg";
+import AppointmentDialog from "@/components/AppointmentDialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const serviceDetails: Record<string, any> = {
   cardiology: {
@@ -176,8 +179,20 @@ const serviceDetails: Record<string, any> = {
 const ServiceDetail = () => {
   const { serviceId } = useParams();
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   const service = serviceId ? serviceDetails[serviceId] : null;
+  
+  const serviceKeys = Object.keys(serviceDetails);
+  const currentIndex = serviceKeys.indexOf(serviceId || "");
+  const prevServiceKey = currentIndex > 0 ? serviceKeys[currentIndex - 1] : null;
+  const nextServiceKey = currentIndex < serviceKeys.length - 1 ? serviceKeys[currentIndex + 1] : null;
+
+  // Scroll to top when component mounts or serviceId changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [serviceId]);
 
   if (!service) {
     return (
@@ -199,16 +214,41 @@ const ServiceDetail = () => {
       <Navbar />
       
       <main className="pt-32 pb-20">
-        {/* Back Button */}
+        {/* Back Button & Navigation */}
         <div className="container mx-auto px-4 mb-8">
-          <Button
-            onClick={() => navigate("/services")}
-            variant="outline"
-            className="gap-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
-          </Button>
+          <div className="flex justify-between items-center">
+            <Button
+              onClick={() => navigate("/services")}
+              variant="outline"
+              className="gap-2"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              {language === "en" ? "Back to Services" : language === "hi" ? "सेवाओं पर वापस जाएं" : "सेवा पर वापस जाईं"}
+            </Button>
+            
+            <div className="flex gap-2">
+              {prevServiceKey && (
+                <Button
+                  onClick={() => navigate(`/services/${prevServiceKey}`)}
+                  variant="outline"
+                  className="gap-2"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  {language === "en" ? "Previous" : language === "hi" ? "पिछला" : "पिछला"}
+                </Button>
+              )}
+              {nextServiceKey && (
+                <Button
+                  onClick={() => navigate(`/services/${nextServiceKey}`)}
+                  variant="outline"
+                  className="gap-2"
+                >
+                  {language === "en" ? "Next" : language === "hi" ? "अगला" : "अगला"}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Hero Section */}
@@ -241,20 +281,14 @@ const ServiceDetail = () => {
               <div className="space-y-6">
                 <div>
                   <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-                    Our Service
+                    {language === "en" ? "Our Service" : language === "hi" ? "हमारी सेवा" : "हमार सेवा"}
                   </span>
                   <h1 className="text-5xl font-bold text-foreground mb-4">
-                    {service.title}
+                    {language === "en" ? service.title : service.titleHi}
                   </h1>
-                  <p className="text-lg text-muted-foreground mb-2">
-                    {service.titleHi}
-                  </p>
                 </div>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  {service.fullDescription}
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {service.fullDescriptionHi}
+                  {language === "en" ? service.fullDescription : service.fullDescriptionHi}
                 </p>
               </div>
             </div>
@@ -265,7 +299,7 @@ const ServiceDetail = () => {
         <section className="container mx-auto px-4 mb-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-              Our Services Include
+              {language === "en" ? "Our Services Include" : language === "hi" ? "हमारी सेवाओं में शामिल हैं" : "हमार सेवा में शामिल बा"}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {service.features.map((feature: string, index: number) => (
@@ -274,9 +308,8 @@ const ServiceDetail = () => {
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                       <div>
-                        <p className="font-medium text-foreground mb-1">{feature}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {service.featuresHi[index]}
+                        <p className="font-medium text-foreground mb-1">
+                          {language === "en" ? feature : service.featuresHi[index]}
                         </p>
                       </div>
                     </div>
@@ -291,19 +324,27 @@ const ServiceDetail = () => {
         <section className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Need This Service?
+              {language === "en" ? "Need This Service?" : language === "hi" ? "इस सेवा की आवश्यकता है?" : "ई सेवा के जरूरत बा?"}
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Book an appointment with our specialists today
+              {language === "en" ? "Book an appointment with our specialists today" : language === "hi" ? "आज ही हमारे विशेषज्ञों के साथ अपॉइंटमेंट बुक करें" : "आज हमार विशेषज्ञ लोग से अपॉइंटमेंट बुक करीं"}
             </p>
-            <Button className="gradient-primary text-white px-8 py-6 text-lg">
-              Book Appointment
+            <Button 
+              onClick={() => setAppointmentOpen(true)}
+              className="gradient-primary text-white px-8 py-6 text-lg"
+            >
+              {language === "en" ? "Book Appointment" : language === "hi" ? "अपॉइंटमेंट बुक करें" : "अपॉइंटमेंट बुक करीं"}
             </Button>
           </div>
         </section>
       </main>
 
       <Footer />
+      
+      <AppointmentDialog 
+        open={appointmentOpen}
+        onOpenChange={setAppointmentOpen}
+      />
     </div>
   );
 };

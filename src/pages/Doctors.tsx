@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import HeroSlider from "@/components/HeroSlider";
 import DoctorsSlider from "@/components/DoctorsSlider";
 import ContentSlider from "@/components/ContentSlider";
-import Gallery from "@/components/Gallery";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, GraduationCap, Users, Heart, Trophy, BookOpen, Clock, Globe, Star, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -194,9 +194,6 @@ const Doctors = () => {
             </div>
           </div>
         </section>
-
-        {/* Section 11: Gallery */}
-        <Gallery />
 
         {/* CTA Section */}
         <section className="container mx-auto px-4 mt-20">

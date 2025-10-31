@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSlider from "@/components/HeroSlider";
 import Services from "@/components/Services";
-import Gallery from "@/components/Gallery";
+
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { CheckCircle, Heart, Activity, Brain, Bone, Eye, Stethoscope, Syringe, Award, Clock } from "lucide-react";
@@ -229,8 +229,6 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* Section 10: Gallery */}
-        <Gallery />
       </main>
 
       <Footer />

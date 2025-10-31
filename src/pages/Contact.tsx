@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSlider from "@/components/HeroSlider";
-import Gallery from "@/components/Gallery";
+
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation, Building, Users, Calendar, Shield } from "lucide-react";
@@ -147,7 +147,6 @@ const Contact = () => {
         <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center mb-8">{language === "en" ? "Visit Us" : "हमें मिलें"}</h2></section>
         <section className="bg-muted/30 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Emergency Contact" : "आपातकालीन संपर्क"}</h2></section>
         <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Feedback" : "प्रतिक्रिया"}</h2></section>
-        <Gallery />
       </main>
 
       <Footer />

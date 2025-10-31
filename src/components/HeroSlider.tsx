@@ -44,10 +44,13 @@ const HeroSlider = ({ slides }: HeroSliderProps) => {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
+          {slide.image && (
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
       ))}

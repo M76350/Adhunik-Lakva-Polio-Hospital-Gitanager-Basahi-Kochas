@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSlider from "@/components/HeroSlider";
 import ContentSlider from "@/components/ContentSlider";
-import Gallery from "@/components/Gallery";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -241,8 +241,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Section 11: Gallery */}
-        <Gallery />
       </main>
 
       <Footer />

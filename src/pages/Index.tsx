@@ -9,7 +9,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
-import Gallery from "@/components/Gallery";
+
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
@@ -145,10 +145,7 @@ const Index = () => {
         {/* Section 5: Doctors Gallery */}
         <DoctorsGallery />
 
-        {/* Section 6: Gallery */}
-        <Gallery />
-
-        {/* Section 7: Testimonials */}
+        {/* Section 6: Testimonials */}
         <Testimonials />
 
         {/* Section 8: Hospital Map */}
