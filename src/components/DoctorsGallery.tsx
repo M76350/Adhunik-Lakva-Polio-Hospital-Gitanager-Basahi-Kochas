@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import AppointmentDialog from "@/components/AppointmentDialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
@@ -143,11 +144,11 @@ const DoctorsGallery = () => {
       {/* Image Gallery Modal */}
       {imageGalleryOpen && selectedImageDoctor && (
         <div 
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50"
           onClick={() => setImageGalleryOpen(false)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className="fixed top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
             onClick={() => setImageGalleryOpen(false)}
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,64 +156,68 @@ const DoctorsGallery = () => {
             </svg>
           </button>
           
-          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="bg-card rounded-lg overflow-hidden shadow-2xl">
-              <img
-                src={selectedImageDoctor.image}
-                alt={language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
-                className="w-full h-auto max-h-[80vh] object-contain"
-              />
-              <div className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10">
-                <h3 className="text-3xl font-bold text-foreground mb-2">
-                  {language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
-                </h3>
-                <p className="text-xl text-muted-foreground mb-4">
-                  {language === "en" ? selectedImageDoctor.specialty : selectedImageDoctor.specialtyHi}
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      {language === "en" ? "Education" : "शिक्षा"}
+          <ScrollArea className="h-full w-full">
+            <div className="min-h-full flex items-center justify-center p-4 py-16">
+              <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+                <div className="bg-card rounded-lg overflow-hidden shadow-2xl">
+                  <img
+                    src={selectedImageDoctor.image}
+                    alt={language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
+                    className="w-full h-auto object-contain"
+                  />
+                  <div className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <h3 className="text-3xl font-bold text-foreground mb-2">
+                      {language === "en" ? selectedImageDoctor.name : selectedImageDoctor.nameHi}
+                    </h3>
+                    <p className="text-xl text-muted-foreground mb-4">
+                      {language === "en" ? selectedImageDoctor.specialty : selectedImageDoctor.specialtyHi}
                     </p>
-                    <p className="font-semibold text-foreground">
-                      {language === "en" ? selectedImageDoctor.education : selectedImageDoctor.educationHi}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      {language === "en" ? "Experience" : "अनुभव"}
-                    </p>
-                    <p className="font-semibold text-foreground">
-                      {language === "en" ? selectedImageDoctor.experience : selectedImageDoctor.experienceHi}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      {language === "en" ? "Rating" : "रेटिंग"}
-                    </p>
-                    <p className="font-semibold text-foreground flex items-center gap-1">
-                      {selectedImageDoctor.rating} <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      {language === "en" ? "Patients" : "मरीज"}
-                    </p>
-                    <p className="font-semibold text-foreground">{selectedImageDoctor.patients}</p>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "en" ? "Education" : "शिक्षा"}
+                        </p>
+                        <p className="font-semibold text-foreground">
+                          {language === "en" ? selectedImageDoctor.education : selectedImageDoctor.educationHi}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "en" ? "Experience" : "अनुभव"}
+                        </p>
+                        <p className="font-semibold text-foreground">
+                          {language === "en" ? selectedImageDoctor.experience : selectedImageDoctor.experienceHi}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "en" ? "Rating" : "रेटिंग"}
+                        </p>
+                        <p className="font-semibold text-foreground flex items-center gap-1">
+                          {selectedImageDoctor.rating} <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "en" ? "Patients" : "मरीज"}
+                        </p>
+                        <p className="font-semibold text-foreground">{selectedImageDoctor.patients}</p>
+                      </div>
+                    </div>
+                    <Button 
+                      className="w-full gradient-primary text-white"
+                      onClick={() => {
+                        setImageGalleryOpen(false);
+                        handleBookClick({ stopPropagation: () => {} } as any, selectedImageDoctor.id);
+                      }}
+                    >
+                      {t("bookAppointment")}
+                    </Button>
                   </div>
                 </div>
-                <Button 
-                  className="w-full gradient-primary text-white"
-                  onClick={() => {
-                    setImageGalleryOpen(false);
-                    handleBookClick({ stopPropagation: () => {} } as any, selectedImageDoctor.id);
-                  }}
-                >
-                  {t("bookAppointment")}
-                </Button>
               </div>
             </div>
-          </div>
+          </ScrollArea>
         </div>
       )}
 
