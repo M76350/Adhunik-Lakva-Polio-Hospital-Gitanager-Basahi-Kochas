@@ -70,7 +70,7 @@ const Navbar = () => {
                 {isActive(link.path) && (
                   <span className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-primary" />
                 )}
-              </Link>
+              </Link>     
             ))}
             <Button
               variant="outline"
@@ -78,9 +78,12 @@ const Navbar = () => {
               onClick={toggleLanguage}
               className="gap-2"
             >
+              <span className="flex items-center justify-center gap-2">
               <Languages className="w-4 h-4" />
               {language === "en" ? "हिं" : language === "hi" ? "भो" : "EN"}
+              </span>
             </Button>
+
             <Button
               variant="outline"
               size="sm"

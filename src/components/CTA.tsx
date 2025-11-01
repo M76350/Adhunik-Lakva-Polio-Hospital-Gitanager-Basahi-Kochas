@@ -23,9 +23,10 @@ const CTA = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-base font-semibold px-8 py-6 rounded-full group shadow-xl"
-            >
+            > <span className="flex items-center justify-center gap-2">
               Book Appointment Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </Button>
 
             <Button
@@ -33,8 +34,8 @@ const CTA = () => {
               variant="outline"
               className="border-2 border-white text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm text-base font-semibold px-8 py-6 rounded-full"
             >
-              <Phone className="mr-2 w-5 h-5" />
-              Call: +1 (555) 123-4567
+             <span className="flex items-center justify-center gap-2"> <Phone className="mr-2 w-5 h-5" />
+             Call: +1 (555) 123-4567</span>
             </Button>
           </div>
 
