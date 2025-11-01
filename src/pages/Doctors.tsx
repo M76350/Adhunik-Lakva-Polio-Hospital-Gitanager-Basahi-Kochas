@@ -9,6 +9,7 @@ import { Award, GraduationCap, Users, Heart, Trophy, BookOpen, Clock, Globe, Sta
 import { Card, CardContent } from "@/components/ui/card";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
+import doctor3 from "@/assets/doctor-3.jpg";
 
 const Doctors = () => {
   const { language } = useLanguage();
@@ -38,6 +39,7 @@ const Doctors = () => {
       description: language === "en"
         ? "Our doctors are highly qualified professionals with years of experience in their respective fields."
         : "हमारे डॉक्टर अपने-अपने क्षेत्रों में वर्षों के अनुभव वाले उच्च योग्य पेशेवर हैं।",
+      image: doctor1,
       gradient: "from-primary to-secondary",
     },
     {
@@ -45,6 +47,7 @@ const Doctors = () => {
       description: language === "en"
         ? "Each doctor specializes in specific areas of medicine, ensuring expert treatment tailored to your needs."
         : "प्रत्येक डॉक्टर चिकित्सा के विशिष्ट क्षेत्रों में विशेषज्ञता रखता है, जो आपकी जरूरतों के अनुरूप विशेषज्ञ उपचार सुनिश्चित करता है।",
+      image: doctor2,
       gradient: "from-secondary to-accent",
     },
     {
@@ -52,6 +55,7 @@ const Doctors = () => {
       description: language === "en"
         ? "Our doctors believe in treating patients with compassion and respect, taking time to listen to your concerns."
         : "हमारे डॉक्टर करुणा और सम्मान के साथ मरीजों का इलाज करने में विश्वास करते हैं, आपकी चिंताओं को सुनने के लिए समय निकालते हैं।",
+      image: doctor3,
       gradient: "from-accent to-primary",
     },
   ];

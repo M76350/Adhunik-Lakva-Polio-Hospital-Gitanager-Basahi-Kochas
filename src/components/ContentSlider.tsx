@@ -48,7 +48,7 @@ const ContentSlider = ({ slides }: ContentSliderProps) => {
             >
               {slides.map((slide, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="overflow-hidden border-0 shadow-xl bg-card">
+                  <Card className="overflow-hidden border-0 shadow-xl bg-card"> 
                     <CardContent className="p-0">
                       <div className="grid md:grid-cols-2 gap-0">
                         <div className={`h-64 md:h-96 bg-gradient-to-br ${slide.gradient} flex items-center justify-center relative overflow-hidden`}>

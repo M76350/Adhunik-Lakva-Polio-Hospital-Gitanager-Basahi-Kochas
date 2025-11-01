@@ -9,6 +9,8 @@ import { CheckCircle, Heart, Activity, Brain, Bone, Eye, Stethoscope, Syringe, A
 import { Card, CardContent } from "@/components/ui/card";
 import serviceCardiology from "@/assets/service-cardiology.jpg";
 import serviceNeurology from "@/assets/service-neurology.jpg";
+import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
+import heroHospital from "@/assets/hero-hospital.jpg";
 
 const ServicesPage = () => {
   const { language } = useLanguage();
@@ -38,6 +40,7 @@ const ServicesPage = () => {
       description: language === "en"
         ? "From diagnosis to treatment and rehabilitation, we provide complete healthcare solutions under one roof."
         : "निदान से लेकर उपचार और पुनर्वास तक, हम एक छत के नीचे पूर्ण स्वास्थ्य समाधान प्रदान करते हैं।",
+      image: serviceCardiology,
       gradient: "from-primary to-secondary",
     },
     {
@@ -45,6 +48,7 @@ const ServicesPage = () => {
       description: language === "en"
         ? "Our hospital has dedicated departments for various medical specialties with expert doctors."
         : "हमारे अस्पताल में विशेषज्ञ डॉक्टरों के साथ विभिन्न चिकित्सा विशेषताओं के लिए समर्पित विभाग हैं।",
+      image: serviceNeurology,
       gradient: "from-secondary to-accent",
     },
     {
@@ -52,6 +56,7 @@ const ServicesPage = () => {
       description: language === "en"
         ? "We offer the latest treatment methods and technologies for better patient outcomes."
         : "हम बेहतर रोगी परिणामों के लिए नवीनतम उपचार विधियां और प्रौद्योगिकियां प्रदान करते हैं।",
+      image: serviceOrthopedics,
       gradient: "from-accent to-primary",
     },
   ];
