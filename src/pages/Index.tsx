@@ -54,6 +54,7 @@ const Index = () => {
       description: language === "en" 
         ? "We have been serving the Buxar community for over 25 years with specialized care in polio treatment and rehabilitation."
         : "हम 25 से अधिक वर्षों से बक्सर समुदाय को पोलियो उपचार और पुनर्वास में विशेष देखभाल प्रदान कर रहे हैं।",
+      image: heroHospital,
       gradient: "from-primary to-secondary",
     },
     {
@@ -61,6 +62,7 @@ const Index = () => {
       description: language === "en"
         ? "State-of-the-art equipment and experienced medical professionals dedicated to your recovery."
         : "आपकी रिकवरी के लिए समर्पित अत्याधुनिक उपकरण और अनुभवी चिकित्सा पेशेवर।",
+      image: serviceCardiology,
       gradient: "from-secondary to-accent",
     },
     {
@@ -68,6 +70,7 @@ const Index = () => {
       description: language === "en"
         ? "Compassionate care tailored to each patient's unique needs and circumstances."
         : "प्रत्येक रोगी की अनूठी जरूरतों और परिस्थितियों के अनुरूप दयालु देखभाल।",
+      image: serviceNeurology,
       gradient: "from-accent to-primary",
     },
   ];

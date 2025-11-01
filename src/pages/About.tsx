@@ -8,6 +8,8 @@ import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe,
 import { Card, CardContent } from "@/components/ui/card";
 import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
+import serviceCardiology from "@/assets/service-cardiology.jpg";
+import serviceNeurology from "@/assets/service-neurology.jpg";
 
 const About = () => {
   const { language } = useLanguage();
@@ -37,6 +39,7 @@ const About = () => {
       description: language === "en" 
         ? "Founded in 1998, Aadhunik Lakava Polio Hospital has been serving the Buxar community for over 25 years with dedication and compassion."
         : "1998 में स्थापित, आधुनिक लकवा पोलियो अस्पताल 25 से अधिक वर्षों से समर्पण और करुणा के साथ बक्सर समुदाय की सेवा कर रहा है।",
+      image: heroHospital,
       gradient: "from-primary to-secondary",
     },
     {
@@ -44,6 +47,7 @@ const About = () => {
       description: language === "en"
         ? "To be the leading healthcare provider in the region, known for excellence in medical care and patient satisfaction."
         : "चिकित्सा देखभाल और रोगी संतुष्टि में उत्कृष्टता के लिए जाना जाने वाला क्षेत्र का अग्रणी स्वास्थ्य सेवा प्रदाता बनना।",
+      image: serviceCardiology,
       gradient: "from-secondary to-accent",
     },
     {
@@ -51,6 +55,7 @@ const About = () => {
       description: language === "en"
         ? "Providing accessible, affordable, and high-quality healthcare to all members of our community."
         : "हमारे समुदाय के सभी सदस्यों को सुलभ, किफायती और उच्च गुणवत्ता वाली स्वास्थ्य सेवा प्रदान करना।",
+      image: serviceOrthopedics,
       gradient: "from-accent to-primary",
     },
   ];

@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceCardiology from "@/assets/service-cardiology.jpg";
+import serviceNeurology from "@/assets/service-neurology.jpg";
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -38,16 +39,19 @@ const Contact = () => {
     {
       title: language === "en" ? "Get in Touch" : "संपर्क में रहें",
       description: language === "en" ? "We're here to help with all your healthcare needs" : "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं",
+      image: heroHospital,
       gradient: "from-primary to-secondary",
     },
     {
       title: language === "en" ? "24/7 Support" : "24/7 सहायता",
       description: language === "en" ? "Round-the-clock emergency services available" : "चौबीसों घंटे आपातकालीन सेवाएं उपलब्ध",
+      image: serviceCardiology,
       gradient: "from-secondary to-accent",
     },
     {
       title: language === "en" ? "Easy Access" : "आसान पहुंच",
       description: language === "en" ? "Multiple ways to reach us for your convenience" : "आपकी सुविधा के लिए हमसे संपर्क करने के कई तरीके",
+      image: serviceNeurology,
       gradient: "from-accent to-primary",
     },
   ];
