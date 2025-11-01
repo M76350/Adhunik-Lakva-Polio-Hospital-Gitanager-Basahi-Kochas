@@ -1,0 +1,276 @@
+{
+  "en": {
+    "site": {
+      "name": "Aadhunik Lakava Polio Hospital",
+      "tagline": "Excellence in Healthcare",
+      "address": "Geeta Nagar Basahi, Buxar",
+      "phone": "+91 XXXXX-XXXXX",
+      "email": "info@aadhunikhospital.com"
+    },
+    "home": {
+      "hero": {
+        "title": "Excellence in Healthcare",
+        "subtitle": "Trusted Medical Care",
+        "description": "We have been serving the Buxar community for over 25 years with specialized care in polio treatment and rehabilitation."
+      },
+      "features": [
+        {
+          "title": "Excellence in Care",
+          "description": "Award-winning medical services with a commitment to quality and patient satisfaction."
+        },
+        {
+          "title": "Compassionate",
+          "description": "Treating patients like family with personalized care and attention to every individual."
+        },
+        {
+          "title": "24/7 Emergency",
+          "description": "Round-the-clock emergency care with immediate response and expert medical support."
+        },
+        {
+          "title": "Safety First",
+          "description": "Highest safety standards with modern protocols and infection control measures."
+        },
+        {
+          "title": "Expert Team",
+          "description": "Highly qualified professionals with years of experience in specialized medical care."
+        },
+        {
+          "title": "Modern Equipment",
+          "description": "Latest medical technology for accurate diagnosis and effective treatment."
+        }
+      ]
+    },
+    "services": {
+      "whyChoose": [
+        {
+          "question": "State-of-the-art Medical Equipment",
+          "answer": "Our hospital is equipped with the latest medical technology and diagnostic tools to ensure accurate diagnosis and effective treatment. We continuously invest in modern equipment to provide the best care possible."
+        },
+        {
+          "question": "24/7 Emergency Services",
+          "answer": "Our emergency department is always open and fully staffed with experienced doctors and nurses. We are prepared to handle any medical emergency at any time of day or night."
+        },
+        {
+          "question": "Experienced Medical Professionals",
+          "answer": "Our team consists of highly qualified doctors, nurses, and healthcare professionals with years of experience. They are dedicated to providing compassionate and expert care to every patient."
+        },
+        {
+          "question": "Comfortable Patient Rooms",
+          "answer": "We provide clean, comfortable, and well-maintained patient rooms designed for your recovery and peace of mind. Each room is equipped with modern amenities to ensure a comfortable stay."
+        },
+        {
+          "question": "Advanced Diagnostic Facilities",
+          "answer": "Our diagnostic center offers comprehensive testing services including X-Ray, Ultrasound, ECG, blood tests, and pathology. We ensure quick and accurate results to guide effective treatment."
+        },
+        {
+          "question": "Personalized Treatment Plans",
+          "answer": "Every patient receives a customized treatment plan tailored to their specific condition and needs. We believe in individualized care for better outcomes."
+        },
+        {
+          "question": "Regular Health Checkups",
+          "answer": "We offer preventive health checkup packages to help you stay healthy. Regular monitoring and early detection can prevent serious health issues."
+        },
+        {
+          "question": "Expert Consultations",
+          "answer": "Our specialists are available for detailed consultations and second opinions. We take time to listen to your concerns and provide expert medical advice."
+        },
+        {
+          "question": "Vaccination Programs",
+          "answer": "We conduct regular vaccination drives for children and adults. Stay protected against preventable diseases with our immunization programs."
+        },
+        {
+          "question": "Post-Treatment Care",
+          "answer": "Our care doesn't stop after treatment. We provide comprehensive follow-up care, rehabilitation services, and ongoing support for complete recovery."
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "title": "Get in Touch",
+        "subtitle": "Contact Us",
+        "description": "We're here to help with all your healthcare needs. Reach out to us anytime."
+      },
+      "sections": {
+        "address": {
+          "title": "Visit Our Hospital",
+          "content": "Located in the heart of Buxar at Geeta Nagar Basahi, our hospital is easily accessible from all parts of the city. We have ample parking space and wheelchair-accessible facilities. Our hospital operates 24/7, ensuring that quality healthcare is always available when you need it. Whether you're coming for a routine checkup or an emergency, our doors are always open."
+        },
+        "phone": {
+          "title": "Call Us Anytime",
+          "content": "Our phone lines are open 24/7 for emergencies and appointments. Call us at +91 XXXXX-XXXXX to speak with our staff. For non-emergency queries, you can also reach us during business hours for appointment scheduling, general inquiries, or to speak with a specific department. We have multilingual staff to assist you in Hindi and English."
+        },
+        "email": {
+          "title": "Email Support",
+          "content": "For non-urgent queries, suggestions, or feedback, you can email us at info@aadhunikhospital.com. We typically respond within 24-48 hours during business days. You can also use email to request medical records, billing information, or to schedule appointments. Our staff regularly monitors the inbox to ensure timely responses."
+        },
+        "hours": {
+          "title": "Operating Hours",
+          "content": "Our emergency department is open 24 hours a day, 7 days a week, including holidays. For outpatient departments and specialist consultations, we operate from 8:00 AM to 8:00 PM on weekdays and 9:00 AM to 5:00 PM on weekends. Diagnostic services are available throughout the day. Please call ahead to schedule appointments with specific doctors."
+        },
+        "whatsapp": {
+          "title": "WhatsApp Support",
+          "content": "Connect with us on WhatsApp at +91 XXXXX-XXXXX for quick queries and appointment booking. Share your concerns, medical reports, or questions through WhatsApp for faster communication. Our support team is available during business hours to assist you. Please note that WhatsApp should not be used for medical emergencies - always call our emergency line for urgent situations."
+        },
+        "directions": {
+          "title": "How to Reach Us",
+          "content": "Our hospital is located at Geeta Nagar Basahi, Buxar, with excellent connectivity by road. If you're traveling by public transport, multiple bus routes pass near our hospital. Auto-rickshaws and taxis are readily available. For those driving, we have secure parking facilities. You can use GPS navigation or contact us for detailed directions from your location."
+        }
+      },
+      "features": [
+        {
+          "title": "Modern Facilities",
+          "description": "State-of-the-art infrastructure with advanced medical equipment and comfortable patient areas designed for your wellbeing."
+        },
+        {
+          "title": "Experienced Staff",
+          "description": "Our team of qualified doctors, nurses, and support staff brings years of expertise and compassionate care to every patient."
+        },
+        {
+          "title": "Easy Appointments",
+          "description": "Multiple convenient ways to book appointments - call, email, WhatsApp, or use our online booking system."
+        },
+        {
+          "title": "Safe & Secure",
+          "description": "Your safety is our priority with strict hygiene protocols, secure premises, and confidential handling of patient information."
+        }
+      ]
+    }
+  },
+  "hi": {
+    "site": {
+      "name": "आधुनिक लकवा पोलियो अस्पताल",
+      "tagline": "स्वास्थ्य सेवा में उत्कृष्टता",
+      "address": "गीता नगर बसाही, बक्सर",
+      "phone": "+91 XXXXX-XXXXX",
+      "email": "info@aadhunikhospital.com"
+    },
+    "home": {
+      "hero": {
+        "title": "स्वास्थ्य सेवा में उत्कृष्टता",
+        "subtitle": "विश्वसनीय चिकित्सा देखभाल",
+        "description": "हम 25 से अधिक वर्षों से बक्सर समुदाय को पोलियो उपचार और पुनर्वास में विशेष देखभाल प्रदान कर रहे हैं।"
+      },
+      "features": [
+        {
+          "title": "देखभाल में उत्कृष्टता",
+          "description": "गुणवत्ता और रोगी संतुष्टि के प्रति प्रतिबद्धता के साथ पुरस्कार विजेता चिकित्सा सेवाएं।"
+        },
+        {
+          "title": "दयालु",
+          "description": "प्रत्येक व्यक्ति पर व्यक्तिगत देखभाल और ध्यान के साथ रोगियों को परिवार की तरह मानना।"
+        },
+        {
+          "title": "24/7 आपातकाल",
+          "description": "तत्काल प्रतिक्रिया और विशेषज्ञ चिकित्सा सहायता के साथ चौबीसों घंटे आपातकालीन देखभाल।"
+        },
+        {
+          "title": "सुरक्षा पहले",
+          "description": "आधुनिक प्रोटोकॉल और संक्रमण नियंत्रण उपायों के साथ उच्चतम सुरक्षा मानक।"
+        },
+        {
+          "title": "विशेषज्ञ टीम",
+          "description": "विशेष चिकित्सा देखभाल में वर्षों के अनुभव वाले उच्च योग्य पेशेवर।"
+        },
+        {
+          "title": "आधुनिक उपकरण",
+          "description": "सटीक निदान और प्रभावी उपचार के लिए नवीनतम चिकित्सा प्रौद्योगिकी।"
+        }
+      ]
+    },
+    "services": {
+      "whyChoose": [
+        {
+          "question": "अत्याधुनिक चिकित्सा उपकरण",
+          "answer": "हमारा अस्पताल सटीक निदान और प्रभावी उपचार सुनिश्चित करने के लिए नवीनतम चिकित्सा प्रौद्योगिकी और नैदानिक उपकरणों से सुसज्जित है। हम सर्वोत्तम संभव देखभाल प्रदान करने के लिए आधुनिक उपकरणों में लगातार निवेश करते हैं।"
+        },
+        {
+          "question": "24/7 आपातकालीन सेवाएं",
+          "answer": "हमारा आपातकालीन विभाग हमेशा खुला रहता है और अनुभवी डॉक्टरों और नर्सों के साथ पूरी तरह से स्टाफ है। हम दिन या रात के किसी भी समय किसी भी चिकित्सा आपात स्थिति को संभालने के लिए तैयार हैं।"
+        },
+        {
+          "question": "अनुभवी चिकित्सा पेशेवर",
+          "answer": "हमारी टीम में वर्षों के अनुभव वाले उच्च योग्य डॉक्टर, नर्स और स्वास्थ्य देखभाल पेशेवर शामिल हैं। वे प्रत्येक रोगी को दयालु और विशेषज्ञ देखभाल प्रदान करने के लिए समर्पित हैं।"
+        },
+        {
+          "question": "आरामदायक रोगी कक्ष",
+          "answer": "हम आपकी रिकवरी और मन की शांति के लिए डिज़ाइन किए गए स्वच्छ, आरामदायक और अच्छी तरह से रखरखाव वाले रोगी कक्ष प्रदान करते हैं। प्रत्येक कमरा आरामदायक रहने को सुनिश्चित करने के लिए आधुनिक सुविधाओं से सुसज्जित है।"
+        },
+        {
+          "question": "उन्नत नैदानिक सुविधाएं",
+          "answer": "हमारा नैदानिक केंद्र एक्स-रे, अल्ट्रासाउंड, ईसीजी, रक्त परीक्षण और पैथोलॉजी सहित व्यापक परीक्षण सेवाएं प्रदान करता है। हम प्रभावी उपचार का मार्गदर्शन करने के लिए त्वरित और सटीक परिणाम सुनिश्चित करते हैं।"
+        },
+        {
+          "question": "व्यक्तिगत उपचार योजनाएं",
+          "answer": "प्रत्येक रोगी को उनकी विशिष्ट स्थिति और आवश्यकताओं के अनुरूप अनुकूलित उपचार योजना प्राप्त होती है। हम बेहतर परिणामों के लिए व्यक्तिगत देखभाल में विश्वास करते हैं।"
+        },
+        {
+          "question": "नियमित स्वास्थ्य जांच",
+          "answer": "हम आपको स्वस्थ रहने में मदद करने के लिए निवारक स्वास्थ्य जांच पैकेज प्रदान करते हैं। नियमित निगरानी और शीघ्र पता लगाने से गंभीर स्वास्थ्य समस्याओं को रोका जा सकता है।"
+        },
+        {
+          "question": "विशेषज्ञ परामर्श",
+          "answer": "हमारे विशेषज्ञ विस्तृत परामर्श और दूसरी राय के लिए उपलब्ध हैं। हम आपकी चिंताओं को सुनने और विशेषज्ञ चिकित्सा सलाह प्रदान करने के लिए समय लेते हैं।"
+        },
+        {
+          "question": "टीकाकरण कार्यक्रम",
+          "answer": "हम बच्चों और वयस्कों के लिए नियमित टीकाकरण अभियान आयोजित करते हैं। हमारे टीकाकरण कार्यक्रमों के साथ रोके जाने योग्य बीमारियों से सुरक्षित रहें।"
+        },
+        {
+          "question": "उपचार के बाद देखभाल",
+          "answer": "उपचार के बाद हमारी देखभाल नहीं रुकती। हम पूर्ण रिकवरी के लिए व्यापक अनुवर्ती देखभाल, पुनर्वास सेवाएं और निरंतर समर्थन प्रदान करते हैं।"
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "title": "संपर्क में रहें",
+        "subtitle": "संपर्क करें",
+        "description": "हम आपकी सभी स्वास्थ्य देखभाल जरूरतों में मदद के लिए यहां हैं। किसी भी समय हमसे संपर्क करें।"
+      },
+      "sections": {
+        "address": {
+          "title": "हमारे अस्पताल में आएं",
+          "content": "गीता नगर बसाही बक्सर के केंद्र में स्थित, हमारा अस्पताल शहर के सभी हिस्सों से आसानी से पहुंचा जा सकता है। हमारे पास पर्याप्त पार्किंग स्थान और व्हीलचेयर-सुलभ सुविधाएं हैं। हमारा अस्पताल 24/7 काम करता है, यह सुनिश्चित करते हुए कि जब आपको इसकी आवश्यकता हो तो गुणवत्ता स्वास्थ्य सेवा हमेशा उपलब्ध हो। चाहे आप नियमित जांच के लिए आ रहे हों या आपातकाल के लिए, हमारे दरवाजे हमेशा खुले हैं।"
+        },
+        "phone": {
+          "title": "किसी भी समय कॉल करें",
+          "content": "आपात स्थिति और अपॉइंटमेंट के लिए हमारी फोन लाइनें 24/7 खुली हैं। हमारे स्टाफ से बात करने के लिए +91 XXXXX-XXXXX पर कॉल करें। गैर-आपातकालीन प्रश्नों के लिए, आप अपॉइंटमेंट शेड्यूलिंग, सामान्य पूछताछ, या किसी विशिष्ट विभाग से बात करने के लिए व्यावसायिक घंटों के दौरान भी हमसे संपर्क कर सकते हैं। आपकी सहायता के लिए हमारे पास हिंदी और अंग्रेजी में बहुभाषी स्टाफ है।"
+        },
+        "email": {
+          "title": "ईमेल सहायता",
+          "content": "गैर-जरूरी प्रश्नों, सुझावों या प्रतिक्रिया के लिए, आप हमें info@aadhunikhospital.com पर ईमेल कर सकते हैं। हम आम तौर पर व्यावसायिक दिनों के दौरान 24-48 घंटों के भीतर जवाब देते हैं। आप चिकित्सा रिकॉर्ड, बिलिंग जानकारी का अनुरोध करने या अपॉइंटमेंट शेड्यूल करने के लिए भी ईमेल का उपयोग कर सकते हैं। समय पर जवाब सुनिश्चित करने के लिए हमारा स्टाफ नियमित रूप से इनबॉक्स की निगरानी करता है।"
+        },
+        "hours": {
+          "title": "संचालन समय",
+          "content": "हमारा आपातकालीन विभाग छुट्टियों सहित दिन में 24 घंटे, सप्ताह में 7 दिन खुला रहता है। बाह्य रोगी विभागों और विशेषज्ञ परामर्श के लिए, हम सप्ताह के दिनों में सुबह 8:00 बजे से शाम 8:00 बजे तक और सप्ताहांत में सुबह 9:00 बजे से शाम 5:00 बजे तक काम करते हैं। नैदानिक सेवाएं पूरे दिन उपलब्ध हैं। कृपया विशिष्ट डॉक्टरों के साथ अपॉइंटमेंट शेड्यूल करने के लिए पहले से कॉल करें।"
+        },
+        "whatsapp": {
+          "title": "व्हाट्सएप सहायता",
+          "content": "त्वरित प्रश्नों और अपॉइंटमेंट बुकिंग के लिए +91 XXXXX-XXXXX पर व्हाट्सएप पर हमसे जुड़ें। तेज़ संचार के लिए व्हाट्सएप के माध्यम से अपनी चिंताओं, चिकित्सा रिपोर्ट या प्रश्नों को साझा करें। आपकी सहायता के लिए हमारी सहायता टीम व्यावसायिक घंटों के दौरान उपलब्ध है। कृपया ध्यान दें कि व्हाट्सएप का उपयोग चिकित्सा आपात स्थितियों के लिए नहीं किया जाना चाहिए - तत्काल स्थितियों के लिए हमेशा हमारी आपातकालीन लाइन पर कॉल करें।"
+        },
+        "directions": {
+          "title": "हम तक कैसे पहुंचें",
+          "content": "हमारा अस्पताल गीता नगर बसाही, बक्सर में स्थित है, जिसमें सड़क द्वारा उत्कृष्ट कनेक्टिविटी है। यदि आप सार्वजनिक परिवहन से यात्रा कर रहे हैं, तो हमारे अस्पताल के पास कई बस मार्ग गुजरते हैं। ऑटो-रिक्शा और टैक्सियाँ आसानी से उपलब्ध हैं। वाहन चलाने वालों के लिए, हमारे पास सुरक्षित पार्किंग सुविधाएं हैं। आप जीपीएस नेविगेशन का उपयोग कर सकते हैं या अपने स्थान से विस्तृत निर्देशों के लिए हमसे संपर्क कर सकते हैं।"
+        }
+      },
+      "features": [
+        {
+          "title": "आधुनिक सुविधाएं",
+          "description": "आपकी भलाई के लिए डिज़ाइन किए गए उन्नत चिकित्सा उपकरण और आरामदायक रोगी क्षेत्रों के साथ अत्याधुनिक बुनियादी ढांचा।"
+        },
+        {
+          "title": "अनुभवी स्टाफ",
+          "description": "योग्य डॉक्टरों, नर्सों और सहायक स्टाफ की हमारी टीम प्रत्येक रोगी को वर्षों की विशेषज्ञता और दयालु देखभाल प्रदान करती है।"
+        },
+        {
+          "title": "आसान अपॉइंटमेंट",
+          "description": "अपॉइंटमेंट बुक करने के कई सुविधाजनक तरीके - कॉल करें, ईमेल करें, व्हाट्सएप करें, या हमारे ऑनलाइन बुकिंग सिस्टम का उपयोग करें।"
+        },
+        {
+          "title": "सुरक्षित और संरक्षित",
+          "description": "सख्त स्वच्छता प्रोटोकॉल, सुरक्षित परिसर और रोगी जानकारी के गोपनीय संचालन के साथ आपकी सुरक्षा हमारी प्राथमिकता है।"
+        }
+      ]
+    }
+  }
+}

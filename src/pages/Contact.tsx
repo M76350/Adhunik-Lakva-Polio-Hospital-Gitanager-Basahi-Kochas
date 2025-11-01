@@ -5,6 +5,9 @@ import HeroSlider from "@/components/HeroSlider";
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation, Building, Users, Calendar, Shield } from "lucide-react";
+import contentData from "@/data/content.json";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +18,26 @@ import serviceNeurology from "@/assets/service-neurology.jpg";
 
 const Contact = () => {
   const { language } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const contactContent = language === "en" ? contentData.en.contact : contentData.hi.contact;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    toast({
+      title: language === "en" ? "Message Sent!" : "संदेश भेजा गया!",
+      description: language === "en" 
+        ? "We'll get back to you soon." 
+        : "हम जल्द ही आपसे संपर्क करेंगे।",
+    });
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  };
 
   const heroSlides = [
     {
@@ -57,19 +80,49 @@ const Contact = () => {
   ];
 
   const contactInfo = [
-    { icon: MapPin, title: language === "en" ? "Address" : "पता", content: language === "en" ? "Geeta Nagar Basahi, Buxar" : "गीता नगर बसाही, बक्सर" },
-    { icon: Phone, title: language === "en" ? "Phone" : "फोन", content: "+91 XXXXX-XXXXX" },
-    { icon: Mail, title: language === "en" ? "Email" : "ईमेल", content: "info@aadhunikhospital.com" },
-    { icon: Clock, title: language === "en" ? "Hours" : "समय", content: language === "en" ? "24/7 Emergency Services" : "24/7 आपातकालीन सेवाएं" },
-    { icon: MessageCircle, title: language === "en" ? "WhatsApp" : "व्हाट्सएप", content: "+91 XXXXX-XXXXX" },
-    { icon: Navigation, title: language === "en" ? "Directions" : "दिशा-निर्देश", content: language === "en" ? "Get Directions" : "दिशा निर्देश प्राप्त करें" },
+    { 
+      icon: MapPin, 
+      title: language === "en" ? "Address" : "पता", 
+      content: language === "en" ? "Geeta Nagar Basahi, Buxar" : "गीता नगर बसाही, बक्सर",
+      detail: contactContent.sections.address
+    },
+    { 
+      icon: Phone, 
+      title: language === "en" ? "Phone" : "फोन", 
+      content: "+91 XXXXX-XXXXX",
+      detail: contactContent.sections.phone
+    },
+    { 
+      icon: Mail, 
+      title: language === "en" ? "Email" : "ईमेल", 
+      content: "info@aadhunikhospital.com",
+      detail: contactContent.sections.email
+    },
+    { 
+      icon: Clock, 
+      title: language === "en" ? "Hours" : "समय", 
+      content: language === "en" ? "24/7 Emergency Services" : "24/7 आपातकालीन सेवाएं",
+      detail: contactContent.sections.hours
+    },
+    { 
+      icon: MessageCircle, 
+      title: language === "en" ? "WhatsApp" : "व्हाट्सएप", 
+      content: "+91 XXXXX-XXXXX",
+      detail: contactContent.sections.whatsapp
+    },
+    { 
+      icon: Navigation, 
+      title: language === "en" ? "Directions" : "दिशा-निर्देश", 
+      content: language === "en" ? "Get Directions" : "दिशा निर्देश प्राप्त करें",
+      detail: contactContent.sections.directions
+    },
   ];
 
   const features = [
-    { icon: Building, text: language === "en" ? "Modern Facilities" : "आधुनिक सुविधाएं" },
-    { icon: Users, text: language === "en" ? "Experienced Staff" : "अनुभवी स्टाफ" },
-    { icon: Calendar, text: language === "en" ? "Easy Appointments" : "आसान अपॉइंटमेंट" },
-    { icon: Shield, text: language === "en" ? "Safe & Secure" : "सुरक्षित और संरक्षित" },
+    { icon: Building, title: contactContent.features[0].title, description: contactContent.features[0].description },
+    { icon: Users, title: contactContent.features[1].title, description: contactContent.features[1].description },
+    { icon: Calendar, title: contactContent.features[2].title, description: contactContent.features[2].description },
+    { icon: Shield, title: contactContent.features[3].title, description: contactContent.features[3].description },
   ];
 
   return (
@@ -98,17 +151,25 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Section 3: Contact Cards */}
+        {/* Section 3: Contact Cards with Blog-style Content */}
         <section className="container mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="hover-lift border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
-                    <info.icon className="w-8 h-8 text-white" />
+              <Card key={index} className="hover-lift border-0 shadow-lg overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-primary p-6 text-center">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mx-auto mb-4 flex items-center justify-center">
+                      <info.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{info.title}</h3>
+                    <p className="text-sm text-white/90 font-medium">{info.content}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{info.title}</h3>
-                  <p className="text-sm text-muted-foreground">{info.content}</p>
+                  <div className="p-6">
+                    <h4 className="font-bold text-foreground mb-3">{info.detail.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {info.detail.content}
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -123,12 +184,35 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   {language === "en" ? "Send Message" : "संदेश भेजें"}
                 </h2>
-                <form className="space-y-6">
-                  <Input placeholder={language === "en" ? "Full Name" : "पूरा नाम"} />
-                  <Input type="email" placeholder={language === "en" ? "Email" : "ईमेल"} />
-                  <Input type="tel" placeholder={language === "en" ? "Phone" : "फोन"} />
-                  <Textarea placeholder={language === "en" ? "Message" : "संदेश"} rows={5} />
-                  <Button className="w-full gradient-primary text-white py-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <Input 
+                    placeholder={language === "en" ? "Full Name" : "पूरा नाम"} 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                  />
+                  <Input 
+                    type="email" 
+                    placeholder={language === "en" ? "Email" : "ईमेल"} 
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                  />
+                  <Input 
+                    type="tel" 
+                    placeholder={language === "en" ? "Phone" : "फोन"} 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    required
+                  />
+                  <Textarea 
+                    placeholder={language === "en" ? "Message" : "संदेश"} 
+                    rows={5} 
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    required
+                  />
+                  <Button type="submit" className="w-full gradient-primary text-white py-6">
                     {language === "en" ? "Send Message" : "संदेश भेजें"}
                   </Button>
                 </form>
@@ -136,10 +220,17 @@ const Contact = () => {
             </Card>
             <div className="space-y-6">
               {features.map((feature, index) => (
-                <Card key={index} className="hover-lift">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <feature.icon className="w-12 h-12 text-primary" />
-                    <p className="font-semibold text-lg">{feature.text}</p>
+                <Card key={index} className="hover-lift border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-foreground mb-2">{feature.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}

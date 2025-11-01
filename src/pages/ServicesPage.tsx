@@ -7,6 +7,13 @@ import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { CheckCircle, Heart, Activity, Brain, Bone, Eye, Stethoscope, Syringe, Award, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import contentData from "@/data/content.json";
 import serviceCardiology from "@/assets/service-cardiology.jpg";
 import serviceNeurology from "@/assets/service-neurology.jpg";
 import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
@@ -61,18 +68,9 @@ const ServicesPage = () => {
     },
   ];
 
-  const features = [
-    { icon: Heart, text: language === "en" ? "State-of-the-art Medical Equipment" : "अत्याधुनिक चिकित्सा उपकरण" },
-    { icon: Clock, text: language === "en" ? "24/7 Emergency Services" : "24/7 आपातकालीन सेवाएं" },
-    { icon: Award, text: language === "en" ? "Experienced Medical Professionals" : "अनुभवी चिकित्सा पेशेवर" },
-    { icon: Activity, text: language === "en" ? "Comfortable Patient Rooms" : "आरामदायक रोगी कक्ष" },
-    { icon: Brain, text: language === "en" ? "Advanced Diagnostic Facilities" : "उन्नत नैदानिक सुविधाएं" },
-    { icon: Bone, text: language === "en" ? "Personalized Treatment Plans" : "व्यक्तिगत उपचार योजनाएं" },
-    { icon: Eye, text: language === "en" ? "Regular Health Checkups" : "नियमित स्वास्थ्य जांच" },
-    { icon: Stethoscope, text: language === "en" ? "Expert Consultations" : "विशेषज्ञ परामर्श" },
-    { icon: Syringe, text: language === "en" ? "Vaccination Programs" : "टीकाकरण कार्यक्रम" },
-    { icon: CheckCircle, text: language === "en" ? "Post-Treatment Care" : "उपचार के बाद देखभाल" },
-  ];
+  const whyChooseData = language === "en" 
+    ? contentData.en.services.whyChoose 
+    : contentData.hi.services.whyChoose;
 
   const departments = [
     { name: language === "en" ? "Cardiology" : "हृदय रोग विभाग", desc: language === "en" ? "Heart care specialists" : "हृदय देखभाल विशेषज्ञ" },
@@ -114,23 +112,28 @@ const ServicesPage = () => {
         {/* Section 3: Services Grid */}
         <Services />
 
-        {/* Section 4: Features */}
+        {/* Section 4: Why Choose Us - Accordion */}
         <section className="container mx-auto px-4 py-20 bg-muted/30">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
               {language === "en" ? "Why Choose Our Services?" : "हमारी सेवाएं क्यों चुनें?"}
             </h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-3 p-4 rounded-lg bg-background hover:bg-muted/50 transition-colors hover-lift"
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {whyChooseData.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-background rounded-lg px-6 border-0 shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <feature.icon className="w-6 h-6 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{feature.text}</span>
-                </div>
+                  <AccordionTrigger className="text-left hover:no-underline py-4">
+                    <span className="text-foreground font-semibold">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         </section>
 
