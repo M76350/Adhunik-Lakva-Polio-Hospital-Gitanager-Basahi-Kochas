@@ -7,21 +7,21 @@ const locations = [
   {
     city: "Buxar",
     cityHi: "बक्सर",
-    distance: "0 km",
+    distance: "40 km",
     description: "City Center",
     descriptionHi: "शहर का केंद्र",
   },
   {
     city: "Ara",
     cityHi: "आरा",
-    distance: "35 km",
+    distance: "100 km",
     description: "District Headquarters",
     descriptionHi: "जिला मुख्यालय",
   },
   {
     city: "Ballia",
     cityHi: "बलिया",
-    distance: "45 km",
+    distance: "90 km",
     description: "Nearby District",
     descriptionHi: "निकटतम जिला",
   },
@@ -35,14 +35,14 @@ const locations = [
   {
     city: "Patna",
     cityHi: "पटना",
-    distance: "110 km",
+    distance: "160 km",
     description: "State Capital",
     descriptionHi: "राज्य की राजधानी",
   },
   {
     city: "Ghazipur",
     cityHi: "गाजीपुर",
-    distance: "60 km",
+    distance: "80 km",
     description: "Nearby District",
     descriptionHi: "निकटतम जिला",
   },
@@ -101,8 +101,9 @@ const NearestLocations = () => {
                     window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`, "_blank");
                   }}
                 >
-                  <Navigation className="w-4 h-4 mr-2" />
-                  {t("getDirections")}
+                  <span className="flex items-center justify-center gap-2">                  <Navigation className="w-4 h-4 mr-2" />
+                  {t("getDirections")}</span>
+
                 </Button>
               </CardContent>
             </Card>

@@ -22,7 +22,7 @@ const HospitalMap = () => {
             {language === "en" ? "Find Us" : "हमें खोजें"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {language === "en" 
+            {language === "en"
               ? "Visit us at our convenient location in Buxar"
               : "बक्सर में हमारे सुविधाजनक स्थान पर हमसे मिलें"}
           </p>
@@ -31,11 +31,12 @@ const HospitalMap = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Map */}
           <div className="lg:col-span-2">
-            <Card className="overflow-hidden border-0 shadow-xl">
+            <Card className="overflow-hidden border-0 shadow-xl"> 
               <CardContent className="p-0">
                 <div className="relative w-full h-[500px] bg-muted">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.123456789!2d83.98!3d25.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM0JzEyLjAiTiA4M8KwNTgnNDguMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.9578702056656!2d83.89975749999999!3d25.305619500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398ded000dfefde3%3A0x4ecbf628ed53b76d!2sAadhunik%20Lakva%20polio%20hospital%20Dr%20vishesh%20kumar!5e0!3m2!1sen!2sin!4v1761998678952!5m2!1sen!2sin"
+
                     width="100%"
                     height="500"
                     style={{ border: 0 }}
@@ -58,7 +59,7 @@ const HospitalMap = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">{t("address")}</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      {language === "en" 
+                      {language === "en"
                         ? "Aadhunik Lakava Polio Hospital"
                         : "आधुनिक लकवा पोलियो अस्पताल"}
                       <br />
