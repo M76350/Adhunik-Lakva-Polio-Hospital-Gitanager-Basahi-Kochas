@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# 🏥 Adhunik Lakva Polio Hospital – Gitana
 
-## Project info
+Welcome to the official website of **Adhunik Lakva Polio Hospital**, Gitana (India) 🇮🇳  
+A modern rehabilitation and treatment center dedicated to helping patients recover from **paralysis, polio, and neurological disorders** with advanced medical care and compassion 💖  
 
-**URL**: https://lovable.dev/projects/e87435e7-1fbb-4b85-a424-0304efd13a35
+---
 
-## How can I edit this code?
+## 🌐 Live Website
 
-There are several ways of editing your application.
+👉 **Visit Now:** [https://adhunik-lakva-polio-hospital-gitana.vercel.app/](https://adhunik-lakva-polio-hospital-gitana.vercel.app/)
 
-**Use Lovable**
+🖥️ Explore our facilities, meet our specialists, and learn about the treatments we offer.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e87435e7-1fbb-4b85-a424-0304efd13a35) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🎯 Purpose of the Website
 
-**Use your preferred IDE**
+This website is designed to:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 🌟 Spread awareness about **paralysis and polio recovery**  
+- 💊 Provide details about **treatments, therapies, and facilities** available  
+- 👩‍⚕️ Help patients **book appointments and contact the hospital easily**  
+- 📍 Serve as a trusted online presence for **Adhunik Lakva Polio Hospital**  
+- 💬 Share updates, patient stories, and medical guidance  
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧠 About the Hospital
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**Adhunik Lakva Polio Hospital** is a specialized healthcare center focused on:
+- 🦵 **Paralysis Treatment & Rehabilitation**  
+- 💪 **Polio Management and Recovery**  
+- 🧘 **Physiotherapy & Nerve Strengthening Therapies**  
+- 🧍‍♂️ **Orthopedic & Neurological Care**  
+- ❤️ **Holistic Patient Care with Modern Equipment**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Our mission is to bring hope, healing, and happiness to every patient through personalized treatment plans, expert doctors, and advanced medical technology.
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## ⚙️ Tech Stack Used
+
+This website is built using the latest web technologies 💻:
+
+| Technology | Description |
+|-------------|-------------|
+| ⚡ **Vite** | Super-fast build tool for modern web apps |
+| ⚛️ **React + TypeScript** | Scalable and type-safe frontend framework |
+| 🎨 **Tailwind CSS** | Utility-first styling framework |
+| 🧩 **shadcn/ui** | Pre-built, accessible, and elegant UI components |
+| ☁️ **Vercel** | Lightning-fast global hosting platform |
+
+---
+
+## 🧑‍💻 Local Development Setup
+
+Follow these steps to set up the project locally 👇
+
+```bash
+# Step 1️⃣: Clone the repository
+git clone < MY_GIT_URL >
+
+# Step 2️⃣: Navigate to the project folder
+cd adhunik-lakva-polio-hospital
+
+# Step 3️⃣: Install dependencies
+npm install
+
+# Step 4️⃣: Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+💖 Created & Maintained By
 
-**Use GitHub Codespaces**
+👨‍💻 Manish Yadav
+Full Stack Developer | Passionate about building clean, fast, and accessible web experiences.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+📧 Email: manishyadav.dev@gmail.com
 
-## What technologies are used for this project?
+🌐 Portfolio: [Coming Soon]
+📍 Gitana, India
 
-This project is built with:
+📞 Contact the Hospital
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Adhunik Lakva Polio Hospital
+📍 Gitana, India
+📞 +91-XXXXXXXXXX
+📧 info@adhunikhospital.in
 
-## How can I deploy this project?
+🕒 Open Hours: Monday – Saturday (9:00 AM – 7:00 PM)
 
-Simply open [Lovable](https://lovable.dev/projects/e87435e7-1fbb-4b85-a424-0304efd13a35) and click on Share -> Publish.
+🩷 Copyright
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 Adhunik Lakva Polio Hospital
+All Rights Reserved.
+Built with ❤️ by Manish Yadav
