@@ -97,7 +97,7 @@ const HospitalMap = () => {
                   </div>
                 </div>
 
-                <Button onClick={openInMaps} className="w-full gradient-primary text-white">
+                <Button onClick={openInMaps} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                   <Navigation className="w-4 h-4 mr-2" />
                   {t("getDirections")}
                 </Button>

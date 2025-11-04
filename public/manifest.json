@@ -1,0 +1,27 @@
+{
+  "name": "Aadhunik Lakava Polio Hospital Basahi Kochas",
+  "short_name": "Aadhunik Hospital",
+  "description": "Expert polio treatment, physiotherapy, and rehabilitation by Dr. Bishesh Kumar in Gita Nagar Basahi, Buxar, Bihar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066cc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/DR_logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/DR_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["health", "medical", "hospital"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
