@@ -27,7 +27,7 @@ const Contact = () => {
 
   const contactContent = language === "en" ? contentData.en.contact : contentData.hi.contact;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     toast({
@@ -212,7 +212,7 @@ const Contact = () => {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
                   />
-                  <Button type="submit" className="w-full gradient-primary text-white py-6">
+                  <Button type="submit" className="w-full bg-primary text-primary-foreground py-6 hover:bg-primary/90">
                     {language === "en" ? "Send Message" : "संदेश भेजें"}
                   </Button>
                 </form>

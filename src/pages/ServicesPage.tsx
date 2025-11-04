@@ -92,44 +92,82 @@ const ServicesPage = () => {
         {/* Section 2: Content Slider */}
         <ContentSlider slides={slides} />
 
-        {/* Section 3: Services Grid */}
+        {/* Section 3: Comprehensive Healthcare Content */}
         <section className="container mx-auto px-4 mb-20 mt-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-              {language === "en" ? "Our Services" : "हमारी सेवाएं"}
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              {language === "en" ? "Comprehensive Healthcare Services" : "व्यापक स्वास्थ्य सेवाएं"}
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {language === "en"
-                ? "From routine check-ups to specialized treatments, we offer a complete range of medical services."
-                : "नियमित जांच से लेकर विशेष उपचार तक, हम चिकित्सा सेवाओं की पूरी श्रृंखला प्रदान करते हैं।"}
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12 animate-fade-in">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+                {language === "en" ? "Our Services" : "हमारी सेवाएं"}
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+                {contentData[language].comprehensiveHealthcare.title}
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                {contentData[language].comprehensiveHealthcare.description}
+              </p>
+            </div>
+            
+            {/* Highlights Grid */}
+            <div className="grid md:grid-cols-2 gap-4 mb-12">
+              {contentData[language].comprehensiveHealthcare.highlights.map((highlight, index) => (
+                <div 
+                  key={index}
+                  className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg hover-lift animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <span className="text-2xl">{highlight.split(' ')[0]}</span>
+                  <p className="text-foreground text-sm leading-relaxed flex-1">
+                    {highlight.substring(highlight.indexOf(' ') + 1)}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Section 3: Services Grid */}
         <Services />
 
-        {/* Section 4: Why Choose Us - Accordion */}
+        {/* Section 4: Why Choose Us - Accordion with Images and Icons */}
         <section className="container mx-auto px-4 py-20 bg-muted/30">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-12 text-center animate-fade-in">
               {language === "en" ? "Why Choose Our Services?" : "हमारी सेवाएं क्यों चुनें?"}
             </h2>
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-6">
               {whyChooseData.map((item, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-background rounded-lg px-6 border-0 shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-background rounded-xl border-0 shadow-lg hover:shadow-xl transition-all overflow-hidden animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-4">
-                    <span className="text-foreground font-semibold">{item.question}</span>
+                  <AccordionTrigger className="text-left hover:no-underline px-6 py-5">
+                    <span className="text-foreground font-bold text-lg flex items-center gap-2">
+                      {item.question}
+                    </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
-                    {item.answer}
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="grid md:grid-cols-3 gap-6 items-start">
+                      {/* Image */}
+                      <div className="md:col-span-1">
+                        <img 
+                          src={item.image} 
+                          alt={item.question}
+                          className="w-full h-48 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="md:col-span-2 space-y-4">
+                        <p className="text-muted-foreground leading-relaxed text-base">
+                          {item.answer}
+                        </p>
+                        
+                        {/* Gradient decoration */}
+                        <div className="h-1 w-24 bg-gradient-to-r from-primary via-secondary to-accent rounded-full"></div>
+                      </div>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}

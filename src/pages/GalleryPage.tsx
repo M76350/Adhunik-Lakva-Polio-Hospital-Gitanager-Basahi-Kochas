@@ -5,7 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 const GalleryPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <Navbar />
       <main className="pt-24">
         <Gallery />
