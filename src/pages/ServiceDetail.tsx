@@ -183,7 +183,7 @@ const ServiceDetail = () => {
   const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   const service = serviceId ? serviceDetails[serviceId] : null;
-  
+
   const serviceKeys = Object.keys(serviceDetails);
   const currentIndex = serviceKeys.indexOf(serviceId || "");
   const prevServiceKey = currentIndex > 0 ? serviceKeys[currentIndex - 1] : null;
@@ -212,7 +212,7 @@ const ServiceDetail = () => {
   return (
     <div className="min-h-screen animate-fade-in">
       <Navbar />
-      
+
       <main className="pt-32 pb-20">
         {/* Back Button & Navigation */}
         <div className="container mx-auto px-4 mb-8">
@@ -222,19 +222,21 @@ const ServiceDetail = () => {
               variant="outline"
               className="gap-2"
             >
-              <ArrowLeft className="w-4 h-4" />
-              {language === "en" ? "Back to Services" : language === "hi" ? "सेवाओं पर वापस जाएं" : "सेवा पर वापस जाईं"}
+              <span className="flex justify-center items-center gap-3">
+                <ArrowLeft className="w-4 h-4" />
+                {language === "en" ? "Back to Services" : language === "hi" ? "सेवाओं पर वापस जाएं" : "सेवा पर वापस जाईं"}
+              </span>
             </Button>
-            
+
             <div className="flex gap-2">
               {prevServiceKey && (
                 <Button
                   onClick={() => navigate(`/services/${prevServiceKey}`)}
                   variant="outline"
                   className="gap-2"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  {language === "en" ? "Previous" : language === "hi" ? "पिछला" : "पिछला"}
+                ><span className="flex justify-center items-center gap-3">
+                    <ArrowLeft className="w-4 h-4" />
+                    {language === "en" ? "Previous" : language === "hi" ? "पिछला" : "पिछला"}</span>
                 </Button>
               )}
               {nextServiceKey && (
@@ -242,9 +244,10 @@ const ServiceDetail = () => {
                   onClick={() => navigate(`/services/${nextServiceKey}`)}
                   variant="outline"
                   className="gap-2"
-                >
-                  {language === "en" ? "Next" : language === "hi" ? "अगला" : "अगला"}
-                  <ArrowRight className="w-4 h-4" />
+                ><span className="flex justify-center items-center gap-3">
+                    {language === "en" ? "Next" : language === "hi" ? "अगला" : "अगला"}
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </Button>
               )}
             </div>
@@ -329,7 +332,7 @@ const ServiceDetail = () => {
             <p className="text-lg text-muted-foreground mb-6">
               {language === "en" ? "Book an appointment with our specialists today" : language === "hi" ? "आज ही हमारे विशेषज्ञों के साथ अपॉइंटमेंट बुक करें" : "आज हमार विशेषज्ञ लोग से अपॉइंटमेंट बुक करीं"}
             </p>
-            <Button 
+            <Button
               onClick={() => setAppointmentOpen(true)}
               className="gradient-primary text-white px-8 py-6 text-lg"
             >
@@ -340,8 +343,8 @@ const ServiceDetail = () => {
       </main>
 
       <Footer />
-      
-      <AppointmentDialog 
+
+      <AppointmentDialog
         open={appointmentOpen}
         onOpenChange={setAppointmentOpen}
       />
