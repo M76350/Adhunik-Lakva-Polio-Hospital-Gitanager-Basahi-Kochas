@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const HospitalMap = () => {
   const { t, language } = useLanguage();
-  const hospitalAddress = "Aadhunik Lakava Polio Hospital, Geeta Nagar Basahi, Buxar, Bihar";
+  const hospitalAddress = "Aadhunik Lakva Polio Hospital Dr Vishesh Kumar, Geetanagar Basahi, Buxar, Bihar (Near Kochas, 2km from Rohtas Border)";
 
   const openInMaps = () => {
     window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospitalAddress)}`, "_blank");
@@ -60,12 +60,20 @@ const HospitalMap = () => {
                     <h3 className="font-semibold text-foreground mb-2">{t("address")}</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {language === "en"
-                        ? "Aadhunik Lakava Polio Hospital"
+                        ? "Aadhunik Lakva Polio Hospital"
                         : "आधुनिक लकवा पोलियो अस्पताल"}
                       <br />
                       {language === "en"
-                        ? "Geeta Nagar Basahi, Buxar"
-                        : "गीता नगर बसाही, बक्सर"}
+                        ? "Dr Vishesh Kumar"
+                        : "डॉ विशेष कुमार"}
+                      <br />
+                      {language === "en"
+                        ? "Geetanagar Basahi, Buxar"
+                        : "गीतानगर बसाही, बक्सर"}
+                      <br />
+                      {language === "en"
+                        ? "Near Kochas, 2km from Rohtas Border"
+                        : "कोचस के पास, रोहतास बॉर्डर से 2 किमी"}
                       <br />
                       {language === "en" ? "Bihar, India" : "बिहार, भारत"}
                     </p>

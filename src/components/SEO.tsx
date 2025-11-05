@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Aadhunik Lakava Polio Hospital Basahi Kochas | Dr. Bishesh Kumar | Best Polio Treatment",
-  description = "Aadhunik Lakava Polio Hospital Basahi Kochas - Expert polio treatment, physiotherapy, and rehabilitation by Dr. Bishesh Kumar in Gita Nagar Basahi, Buxar, Bihar.",
-  keywords = "Aadhunik Lakava Polio Hospital Basahi Kochas, Dr. Bishesh Kumar, polio treatment hospital Buxar, polio hospital Basahi Kochas, physiotherapy in Buxar",
+  title = "Aadhunik Lakva Polio Hospital Dr Vishesh Kumar | Geetanagar Basahi Buxar | Near Kochas Rohtas Border",
+  description = "Aadhunik Lakva Polio Hospital Dr Vishesh Kumar in Geetanagar Basahi, Buxar - Expert polio treatment, physiotherapy & rehabilitation. Located 2km from Rohtas border, near Kochas. Best paralysis treatment in Bihar.",
+  keywords = "Aadhunik Lakva polio hospital Dr vishesh kumar, polio treatment Geetanagar Basahi, polio hospital Buxar, physiotherapy near Kochas, paralysis treatment Rohtas border, Dr Vishesh Kumar Buxar, rehabilitation center Bihar",
   canonical = "https://adhunik-lakva-polio-hospital-gitana.vercel.app/",
   ogImage = "https://adhunik-lakva-polio-hospital-gitana.vercel.app/DR_logo.jpg",
   ogType = "website"
