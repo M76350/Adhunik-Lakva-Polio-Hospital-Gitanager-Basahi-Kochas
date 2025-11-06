@@ -8,7 +8,7 @@ import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe,
 import { Card, CardContent } from "@/components/ui/card";
 import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
-import ExactCube from "@/components/ExactCube";
+// ExactCube removed to fix build on Vercel where component file may be unavailable
 
 const About = () => {
   const { language } = useLanguage();
@@ -123,11 +123,7 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="">
-                <ExactCube />
-
-              </div>
-              {/* <div className="aspect-square rounded-2xl bg-gradient-primary" /> */}
+              <div className="aspect-square rounded-2xl gradient-primary" />
             </div>
           </div>
         </section>
