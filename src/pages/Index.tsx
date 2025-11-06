@@ -119,6 +119,8 @@ const Index = () => {
         {/* Section 2: Content Slider */}
         <ContentSlider slides={sliderContent} />
 
+        {/* Interactive cube section removed as requested */}
+
       
 
         {/* Section 3: Features */}
