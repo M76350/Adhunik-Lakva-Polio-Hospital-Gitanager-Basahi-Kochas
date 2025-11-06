@@ -8,7 +8,7 @@ import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe,
 import { Card, CardContent } from "@/components/ui/card";
 import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
-// ExactCube removed to fix build on Vercel where component file may be unavailable
+import ExactCube from "@/components/ExactCube";
 
 const About = () => {
   const { language } = useLanguage();
@@ -99,8 +99,8 @@ const About = () => {
 
         {/* Section 2: Story */}
         <section className="container mx-auto px-4 mb-20">
-          <div className="grid md:grid-cols-2 gap-12 py-8 items-center max-w-6xl mx-auto">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="space-y-6 md:order-1">
               <h2 className="text-4xl font-bold text-foreground">{language === "en" ? "Our Story" : "हमारी कहानी"}</h2>
               <p className="text-muted-foreground leading-relaxed">
                 {language === "en"
@@ -122,30 +122,27 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl gradient-primary" />
+            <div className="relative md:order-2 pt-36">
+              <ExactCube />
             </div>
           </div>
         </section>
 
-        {/* Section 4: Values */}
-        <section className="bg-muted/30 py-20">
+        {/* Section 3: Our Core Values (separate section below story) */}
+        <section className="bg-muted/30 py-16">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-4">
+            <div className="text-center mb-10">
+              <h2 className="text-4xl font-bold text-foreground">
                 {language === "en" ? "Our Core Values" : "हमारे मूल मूल्य"}
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
               {values.map((value, index) => (
                 <Card key={index} className="hover-lift border-0 shadow-lg">
                   <CardContent className="p-6 text-center">
                     <div className="group w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center transition-transform duration-500 ease-out hover:-translate-y-2 hover:shadow-lg">
-                      <value.icon className="w-12 h-12 text-blue-500 transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:[transform:scaleY(-1)_translateY(-5px)]" />
+                      <value.icon className="w-12 h-12 text-blue-500 transform transition-transform duration-700 [transition-timing-function:cubic-bezier(0.25,0.8,0.25,1)] group-hover:[transform:scaleY(-1)_translateY(-5px)]" />
                     </div>
-
-
-
                     <h3 className="text-lg font-bold text-foreground mb-2">{value.title}</h3>
                     <p className="text-xs text-muted-foreground">{value.description}</p>
                   </CardContent>

@@ -159,10 +159,10 @@ const Contact = () => {
                 <CardContent className="p-0">
                   <div className="bg-gradient-primary p-6 text-center">
                     <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mx-auto mb-4 flex items-center justify-center">
-                      <info.icon className="w-8 h-8 text-white" />
+                      <info.icon className="w-10 h-10 text-blue-400" />
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2">{info.title}</h3>
-                    <p className="text-sm text-white/90 font-medium">{info.content}</p>
+                    <h3 className="text-xl font-bold text-green-600 mb-2">{info.title}</h3>
+                    <p className="text-lg text-primary font-medium">{info.content}</p>
                   </div>
                   <div className="p-6">
                     <h4 className="font-bold text-foreground mb-3">{info.detail.title}</h4>
