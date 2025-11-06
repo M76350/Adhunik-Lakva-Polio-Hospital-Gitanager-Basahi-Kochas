@@ -296,3 +296,147 @@ All colors MUST be HSL.
     animation: zoom-in-out 4s ease-in-out infinite;
   }
 }
+
+@layer components {
+  /* Isometric cube grid */
+  .iso-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 64px);
+    gap: 18px;
+    place-items: center;
+    justify-content: center;
+    perspective: 800px;
+  }
+
+  .iso-cube {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    transform-style: preserve-3d;
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), filter 400ms ease, box-shadow 400ms ease;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+  }
+
+  /* Front face */
+  .iso-cube::before,
+  .iso-cube::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  /* front */
+  .iso-cube {
+    background: linear-gradient(145deg, var(--cube-base), color-mix(in oklab, var(--cube-base), white 14%));
+  }
+
+  /* top */
+  .iso-cube::before {
+    transform: translateY(-18px) skewX(-45deg);
+    height: 18px;
+    background: linear-gradient(180deg, var(--cube-top), color-mix(in oklab, var(--cube-top), black 10%));
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  /* side */
+  .iso-cube::after {
+    width: 18px;
+    transform: translateX(64px) skewY(-45deg);
+    height: 100%;
+    background: linear-gradient(90deg, var(--cube-side), color-mix(in oklab, var(--cube-side), black 12%));
+    box-shadow: -1px 0 0 rgba(0,0,0,0.06) inset;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  /* hover animations */
+  .iso-cube:hover {
+    transform: translateY(-10px) rotateX(4deg) rotateY(-6deg);
+    box-shadow: 0 12px 30px color-mix(in oklab, var(--cube-base), transparent 70%);
+    filter: drop-shadow(0 12px 22px color-mix(in oklab, var(--cube-base), transparent 70%));
+  }
+
+  /* gentle pulsing glow for center-like emphasis when keyboard-focused */
+  .iso-cube:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--cube-base), white 40%);
+  }
+}
+
+@layer components {
+  /* EXACT replica cube effect (scoped) */
+  @keyframes xcube-animate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  .xcube-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .xcube-container {
+    position: relative;
+    top: -80px;
+    transform: skewY(-20deg);
+    animation: xcube-animate 5s linear infinite;
+  }
+
+  .xcube-container .cube { position: relative; z-index: 2; }
+  .xcube-container .cube:nth-child(2) { z-index: 1; translate: -60px -60px; }
+  .xcube-container .cube:nth-child(3) { z-index: 3; translate: 60px 60px; }
+
+  .xcube-container .cube div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    translate: calc(-70px * var(--x)) calc(-60px * var(--y));
+  }
+
+  .xcube-container .cube div span {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #dcdcdc;
+    z-index: calc(1 * var(--i));
+    transition: 1.5s;
+  }
+
+  .xcube-container .cube div span:hover { transition: 0s; background: #ef4149; filter: drop-shadow(0 0 30px #ef4149); }
+  .xcube-container .cube div span:hover::before,
+  .xcube-container .cube div span:hover::after { transition: 0s; background: #ef4149; }
+
+  .xcube-container .cube div span::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    width: 40px;
+    height: 100%;
+    background: #f0e1e1;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 1.5s;
+  }
+
+  .xcube-container .cube div span::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    background: #dab5b5;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 1.5s;
+  }
+}

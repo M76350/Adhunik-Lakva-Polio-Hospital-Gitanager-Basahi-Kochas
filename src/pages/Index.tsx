@@ -18,6 +18,7 @@ import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceCardiology from "@/assets/service-cardiology.jpg";
 import serviceNeurology from "@/assets/service-neurology.jpg";
 
+
 const Index = () => {
   const { language } = useLanguage();
 
@@ -117,6 +118,8 @@ const Index = () => {
 
         {/* Section 2: Content Slider */}
         <ContentSlider slides={sliderContent} />
+
+      
 
         {/* Section 3: Features */}
         <section className="py-20 bg-background">

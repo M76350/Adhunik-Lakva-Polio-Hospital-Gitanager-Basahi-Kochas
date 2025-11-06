@@ -26,7 +26,7 @@ const CTA = () => {
             > <span className="flex items-center justify-center gap-2">
               Book Appointment Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
+              </span>  
             </Button>
 
             <Button
