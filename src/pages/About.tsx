@@ -8,8 +8,7 @@ import { Award, Users, Heart, Shield, Target, Eye, Lightbulb, TrendingUp, Globe,
 import { Card, CardContent } from "@/components/ui/card";
 import heroHospital from "@/assets/hero-hospital.jpg";
 import serviceOrthopedics from "@/assets/service-orthopedics.jpg";
-import serviceCardiology from "@/assets/service-cardiology.jpg";
-import serviceNeurology from "@/assets/service-neurology.jpg";
+import ExactCube from "@/components/ExactCube";
 
 const About = () => {
   const { language } = useLanguage();
@@ -36,10 +35,9 @@ const About = () => {
   const slides = [
     {
       title: language === "en" ? "Our Journey" : "हमारी यात्रा",
-      description: language === "en" 
+      description: language === "en"
         ? "Founded in 1998, Aadhunik Lakava Polio Hospital has been serving the Buxar community for over 25 years with dedication and compassion."
         : "1998 में स्थापित, आधुनिक लकवा पोलियो अस्पताल 25 से अधिक वर्षों से समर्पण और करुणा के साथ बक्सर समुदाय की सेवा कर रहा है।",
-      image: heroHospital,
       gradient: "from-primary to-secondary",
     },
     {
@@ -47,7 +45,6 @@ const About = () => {
       description: language === "en"
         ? "To be the leading healthcare provider in the region, known for excellence in medical care and patient satisfaction."
         : "चिकित्सा देखभाल और रोगी संतुष्टि में उत्कृष्टता के लिए जाना जाने वाला क्षेत्र का अग्रणी स्वास्थ्य सेवा प्रदाता बनना।",
-      image: serviceCardiology,
       gradient: "from-secondary to-accent",
     },
     {
@@ -55,7 +52,6 @@ const About = () => {
       description: language === "en"
         ? "Providing accessible, affordable, and high-quality healthcare to all members of our community."
         : "हमारे समुदाय के सभी सदस्यों को सुलभ, किफायती और उच्च गुणवत्ता वाली स्वास्थ्य सेवा प्रदान करना।",
-      image: serviceOrthopedics,
       gradient: "from-accent to-primary",
     },
   ];
@@ -76,7 +72,7 @@ const About = () => {
   return (
     <div className="min-h-screen animate-fade-in">
       <Navbar />
-      
+
       <main>
         {/* Section 1: Hero Slider */}
         <HeroSlider slides={heroSlides} />
@@ -103,7 +99,7 @@ const About = () => {
 
         {/* Section 2: Story */}
         <section className="container mx-auto px-4 mb-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 py-8 items-center max-w-6xl mx-auto">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-foreground">{language === "en" ? "Our Story" : "हमारी कहानी"}</h2>
               <p className="text-muted-foreground leading-relaxed">
@@ -127,7 +123,11 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-primary" />
+              <div className="">
+                <ExactCube />
+
+              </div>
+              {/* <div className="aspect-square rounded-2xl bg-gradient-primary" /> */}
             </div>
           </div>
         </section>
@@ -144,9 +144,12 @@ const About = () => {
               {values.map((value, index) => (
                 <Card key={index} className="hover-lift border-0 shadow-lg">
                   <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
-                      <value.icon className="w-8 h-8 text-white" />
+                    <div className="group w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center transition-transform duration-500 ease-out hover:-translate-y-2 hover:shadow-lg">
+                      <value.icon className="w-12 h-12 text-blue-500 transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:[transform:scaleY(-1)_translateY(-5px)]" />
                     </div>
+
+
+
                     <h3 className="text-lg font-bold text-foreground mb-2">{value.title}</h3>
                     <p className="text-xs text-muted-foreground">{value.description}</p>
                   </CardContent>
@@ -187,7 +190,7 @@ const About = () => {
               <Card className="hover-lift">
                 <CardContent className="p-8 text-center">
                   <Users className="w-16 h-16 text-secondary mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2">{language === "en" ? "10,000+" : "10,000+"}</h3>
+                  <h3 className="text-2xl font-bold mb-2">{language === "en" ? "12,000+" : "12,000+"}</h3>
                   <p className="text-muted-foreground">{language === "en" ? "Patients Treated Successfully" : "सफलतापूर्वक उपचारित मरीज"}</p>
                 </CardContent>
               </Card>
