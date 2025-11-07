@@ -4,6 +4,7 @@ import HeroSlider from "@/components/HeroSlider";
 import DoctorsSlider from "@/components/DoctorsSlider";
 import ContentSlider from "@/components/ContentSlider";
 
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, GraduationCap, Users, Heart, Trophy, BookOpen, Clock, Globe, Star, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +13,7 @@ import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 
 const Doctors = () => {
-  const { language } = useLanguage();
+  const { language } = useLanguage(); 
 
   const heroSlides = [
     {
@@ -76,7 +77,7 @@ const Doctors = () => {
   return (
     <div className="min-h-screen animate-fade-in">
       <Navbar />
-      
+
       <main>
         {/* Section 1: Hero Slider */}
         <HeroSlider slides={heroSlides} />
@@ -107,9 +108,12 @@ const Doctors = () => {
             {highlights.map((highlight, index) => (
               <Card key={index} className="border-0 shadow-lg hover-lift">
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
-                    <highlight.icon className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center group">
+                    <highlight.icon
+                      className="w-12 h-12 text-blue-500 transform transition-transform duration-700 ease-in-out group-hover:scale-x-[-1]"
+                    />
                   </div>
+
                   <h3 className="text-lg font-bold text-foreground mb-2">{highlight.title}</h3>
                   <p className="text-xs text-muted-foreground">{highlight.description}</p>
                 </CardContent>
@@ -141,17 +145,49 @@ const Doctors = () => {
 
         {/* Section 7: Training & Education */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-            {language === "en" ? "Training & Education" : "प्रशिक्षण और शिक्षा"}
-          </h2>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {language === "en"
-                ? "Our doctors regularly participate in continuing medical education programs to stay updated with the latest advancements in their fields."
-                : "हमारे डॉक्टर अपने क्षेत्रों में नवीनतम प्रगति से अपडेट रहने के लिए निरंतर चिकित्सा शिक्षा कार्यक्रमों में नियमित रूप से भाग लेते हैं।"}
-            </p>
-          </div>
-        </section>
+  {/* Heading */}
+  <h2 className="text-4xl font-bold text-foreground text-center mb-6">
+    {language === "en" ? "Training & Education" : "प्रशिक्षण और शिक्षा"}
+  </h2>
+
+  {/* Divider Line */}
+  <div className="w-24 h-1 bg-blue-600 mx-auto mb-12 rounded-full"></div>
+
+  {/* Image + Text Section */}
+  <div className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-6xl mx-auto">
+    {/* Image with hologram effect */}
+    <div className="w-full md:w-1/2 relative group">
+      <img
+        src="https://www.chinadaily.com.cn/china/images/attachement/jpg/site1/20170513/eca86bd9e2f91a8082e004.jpg"
+        alt={
+          language === "en"
+            ? "Doctors attending medical training"
+            : "डॉक्टर चिकित्सा प्रशिक्षण सत्र में भाग लेते हुए"
+        }
+        className="rounded-2xl shadow-lg transition-all duration-700 ease-in-out group-hover:scale-105"
+      />
+
+      {/* Hologram glow overlay */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-r from-blue-500/30 via-cyan-400/40 to-pink-400/30 blur-sm animate-hologram"></div>
+    </div>
+
+    {/* Text */}
+    <div className="w-full md:w-1/2 text-center md:text-left">
+      <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+        {language === "en"
+          ? "Our doctors regularly participate in continuing medical education programs to stay updated with the latest advancements in their fields."
+          : "हमारे डॉक्टर अपने क्षेत्रों में नवीनतम प्रगति से अपडेट रहने के लिए निरंतर चिकित्सा शिक्षा कार्यक्रमों में नियमित रूप से भाग लेते हैं।"}
+      </p>
+
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        {language === "en"
+          ? "We also organize in-house workshops, training sessions, and awareness programs to enhance the knowledge and skills of our medical staff, ensuring every patient receives world-class care."
+          : "हम अपने चिकित्सा कर्मचारियों के ज्ञान और कौशल को बढ़ाने के लिए आंतरिक कार्यशालाओं, प्रशिक्षण सत्रों और जागरूकता कार्यक्रमों का भी आयोजन करते हैं ताकि प्रत्येक मरीज को विश्व स्तरीय देखभाल मिल सके।"}
+      </p>
+    </div>
+  </div>
+</section>
+
 
         {/* Section 8: Patient Care Philosophy */}
         <section className="bg-muted/30 py-20">

@@ -136,7 +136,7 @@ const Index = () => {
                 <Card key={index} className="hover-lift border-0 shadow-lg">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
-                      <feature.icon className="w-8 h-8 text-white" />
+                      <feature.icon className="w-12 h-12 text-blue-500" />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
