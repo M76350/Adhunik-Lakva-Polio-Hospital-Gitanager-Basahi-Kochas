@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 
 import ContentSlider from "@/components/ContentSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CheckCircle, Heart, Activity, Brain, Bone, Eye, Stethoscope, Syringe, Award, Clock } from "lucide-react";
+import { FaHeart, FaBrain, FaBone, FaEye, FaStethoscope, FaSyringe, FaAward, FaClock, FaCheckCircle, FaHeartbeat } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
@@ -129,9 +129,9 @@ const ServicesPage = () => {
         <Services />
 
         {/* Section 4: Why Choose Us - Accordion with Images and Icons */}
-        <section className="container mx-auto px-4 py-20 bg-muted/30">
+        <section className="container mx-auto px-4 py-20 bg-gradient-to-br from-muted/30 via-primary/5 to-secondary/5">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground mb-12 text-center animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-12 text-center animate-fade-in">
               {language === "en" ? "Why Choose Our Services?" : "हमारी सेवाएं क्यों चुनें?"}
             </h2>
             <Accordion type="single" collapsible className="w-full space-y-6">
@@ -139,33 +139,34 @@ const ServicesPage = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-background rounded-xl border-0 shadow-lg hover:shadow-xl transition-all overflow-hidden animate-fade-in"
+                  className="bg-card/90 backdrop-blur-sm rounded-2xl border-2 border-primary/20 shadow-lg hover:shadow-2xl hover:border-primary/40 transition-all overflow-hidden animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <AccordionTrigger className="text-left hover:no-underline px-6 py-5">
-                    <span className="text-foreground font-bold text-lg flex items-center gap-2">
-                      {item.question}
+                  <AccordionTrigger className="text-left hover:no-underline px-6 py-6 hover:bg-primary/5">
+                    <span className="text-foreground font-heading font-bold text-xl flex items-center gap-3">
+                      <span className="text-3xl icon-flip">{item.question.split(' ')[0]}</span>
+                      <span>{item.question.substring(item.question.indexOf(' ') + 1)}</span>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
+                  <AccordionContent className="px-6 pb-6 bg-gradient-to-br from-primary/5 to-secondary/5">
                     <div className="grid md:grid-cols-3 gap-6 items-start">
                       {/* Image */}
                       <div className="md:col-span-1">
                         <img 
                           src={item.image} 
                           alt={item.question}
-                          className="w-full h-48 object-cover rounded-lg shadow-md"
+                          className="w-full h-48 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                       
                       {/* Content */}
                       <div className="md:col-span-2 space-y-4">
-                        <p className="text-muted-foreground leading-relaxed text-base">
+                        <p className="text-muted-foreground font-body leading-relaxed text-base">
                           {item.answer}
                         </p>
                         
                         {/* Gradient decoration */}
-                        <div className="h-1 w-24 bg-gradient-to-r from-primary via-secondary to-accent rounded-full"></div>
+                        <div className="h-1.5 w-32 bg-gradient-to-r from-primary via-secondary to-accent rounded-full shadow-glow"></div>
                       </div>
                     </div>
                   </AccordionContent>
@@ -177,15 +178,15 @@ const ServicesPage = () => {
 
         {/* Section 5: Departments */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground text-center mb-12">
             {language === "en" ? "Our Departments" : "हमारे विभाग"}
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {departments.map((dept, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="hover-lift border-2 border-primary/20 hover:border-primary/40">
                 <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-foreground mb-2">{dept.name}</h3>
-                  <p className="text-sm text-muted-foreground">{dept.desc}</p>
+                  <h3 className="text-xl font-heading font-bold text-foreground mb-2">{dept.name}</h3>
+                  <p className="text-sm font-body text-muted-foreground">{dept.desc}</p>
                 </CardContent>
               </Card>
             ))}

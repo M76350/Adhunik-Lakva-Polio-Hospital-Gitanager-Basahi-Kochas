@@ -1,7 +1,8 @@
-import { Heart, Brain, Bone, Baby, Eye, Activity } from "lucide-react";
+import { FaHeart, FaBrain, FaBone, FaBaby, FaEye, FaHeartbeat } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
 import cardiologyImg from "@/assets/service-cardiology.jpg";
 import neurologyImg from "@/assets/service-neurology.jpg";
 import orthopedicsImg from "@/assets/service-orthopedics.jpg";
@@ -13,7 +14,7 @@ const Services = () => {
   const services = [
     {
       id: "cardiology",
-      icon: Heart,
+      icon: FaHeart,
       titleKey: "cardiology",
       descKey: "cardiologyDesc",
       image: cardiologyImg,
@@ -21,7 +22,7 @@ const Services = () => {
     },
     {
       id: "neurology",
-      icon: Brain,
+      icon: FaBrain,
       titleKey: "neurology",
       descKey: "neurologyDesc",
       image: neurologyImg,
@@ -29,7 +30,7 @@ const Services = () => {
     },
     {
       id: "orthopedics",
-      icon: Bone,
+      icon: FaBone,
       titleKey: "orthopedics",
       descKey: "orthopedicsDesc",
       image: orthopedicsImg,
@@ -37,7 +38,7 @@ const Services = () => {
     },
     {
       id: "pediatrics",
-      icon: Baby,
+      icon: FaBaby,
       titleKey: "pediatrics",
       descKey: "pediatricsDesc",
       image: null,
@@ -45,7 +46,7 @@ const Services = () => {
     },
     {
       id: "ophthalmology",
-      icon: Eye,
+      icon: FaEye,
       titleKey: "ophthalmology",
       descKey: "ophthalmologyDesc",
       image: null,
@@ -53,7 +54,7 @@ const Services = () => {
     },
     {
       id: "emergency-care",
-      icon: Activity,
+      icon: FaHeartbeat,
       titleKey: "emergencyCare",
       descKey: "emergencyCareDesc",
       image: null,
@@ -68,10 +69,10 @@ const Services = () => {
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
             {t("ourServices")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
             {t("servicesTitle")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg font-body text-muted-foreground max-w-2xl mx-auto">
             {t("servicesDescription")}
           </p>
         </div>
@@ -80,8 +81,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={service.id}
-              onClick={() => navigate(`/services/${service.id}`)}
-              className="group hover-lift border-0 shadow-lg bg-card overflow-hidden cursor-pointer"
+              className="group hover-lift border-0 shadow-lg bg-card overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-0">
@@ -94,7 +94,7 @@ const Services = () => {
                     />
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-80 group-hover:opacity-70 transition-opacity`} />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center icon-flip">
                         <service.icon className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -102,19 +102,26 @@ const Services = () => {
                 ) : (
                   <div className={`h-48 bg-gradient-to-br ${service.color} flex items-center justify-center relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform icon-flip">
                       <service.icon className="w-10 h-10 text-white" />
                     </div>
                   </div>
                 )}
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-heading font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">
                     {t(service.descKey)}
                   </p>
+                  <Button 
+                    onClick={() => navigate('/services')}
+                    variant="outline"
+                    className="w-full bg-primary/5 text-primary border-primary/20 hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    {t("learnMore") || "Learn More"}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
