@@ -60,7 +60,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm transition-all duration-200 hover:text-primary hover:text-base relative ${
+                className={`text-sm transition-all duration-200 hover:text-primary hover:text-base relative hover-underline ${
                   isActive(link.path)
                     ? "text-primary"
                     : "text-foreground/70"
