@@ -192,45 +192,96 @@ const Doctors = () => {
         {/* Section 8: Patient Care Philosophy */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-              {language === "en" ? "Our Care Philosophy" : "हमारी देखभाल दर्शन"}
-            </h2>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {language === "en"
-                  ? "We believe in holistic patient care that addresses not just the physical symptoms but also the emotional and psychological well-being of our patients."
-                  : "हम समग्र रोगी देखभाल में विश्वास करते हैं जो केवल शारीरिक लक्षणों को ही नहीं बल्कि हमारे रोगियों की भावनात्मक और मनोवैज्ञानिक कल्याण को भी संबोधित करती है।"}
-              </p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                {language === "en" ? "Our Care Philosophy" : "हमारी देखभाल दर्शन"}
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="space-y-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "We believe in holistic patient care that addresses not just the physical symptoms but also the emotional and psychological well-being of our patients."
+                    : "हम समग्र रोगी देखभाल में विश्वास करते हैं जो केवल शारीरिक लक्षणों को ही नहीं बल्कि हमारे रोगियों की भावनात्मक और मनोवैज्ञानिक कल्याण को भी संबोधित करती है।"}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Every patient is unique, and our doctors take time to understand individual needs, concerns, and circumstances to provide personalized care."
+                    : "प्रत्येक रोगी अनूठा है, और हमारे डॉक्टर व्यक्तिगत देखभाल प्रदान करने के लिए व्यक्तिगत जरूरतों, चिंताओं और परिस्थितियों को समझने के लिए समय निकालते हैं।"}
+                </p>
+              </div>
+              <div className="relative group">
+                <img
+                  src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&auto=format&fit=crop"
+                  alt="Patient care"
+                  className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-float"
+                />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 blur-sm"></div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Section 9: Consultation Process */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-            {language === "en" ? "Consultation Process" : "परामर्श प्रक्रिया"}
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-muted-foreground text-center leading-relaxed">
-              {language === "en"
-                ? "Book an appointment, meet our expert doctors, get comprehensive diagnosis, and receive personalized treatment plans."
-                : "अपॉइंटमेंट बुक करें, हमारे विशेषज्ञ डॉक्टरों से मिलें, व्यापक निदान प्राप्त करें, और व्यक्तिगत उपचार योजनाएं प्राप्त करें।"}
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              {language === "en" ? "Consultation Process" : "परामर्श प्रक्रिया"}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="relative group order-2 md:order-1">
+              <img
+                src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&auto=format&fit=crop"
+                alt="Doctor consultation"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-pulse-glow"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tl from-accent/30 via-primary/20 to-secondary/30 blur-sm"></div>
+            </div>
+            <div className="space-y-6 order-1 md:order-2">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Book an appointment, meet our expert doctors, get comprehensive diagnosis, and receive personalized treatment plans."
+                  : "अपॉइंटमेंट बुक करें, हमारे विशेषज्ञ डॉक्टरों से मिलें, व्यापक निदान प्राप्त करें, और व्यक्तिगत उपचार योजनाएं प्राप्त करें।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Our streamlined process ensures minimal waiting time while providing thorough consultation and care for every patient."
+                  : "हमारी सुव्यवस्थित प्रक्रिया प्रत्येक रोगी के लिए संपूर्ण परामर्श और देखभाल प्रदान करते हुए न्यूनतम प्रतीक्षा समय सुनिश्चित करती है।"}
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Section 10: Success Stories */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-              {language === "en" ? "Success Stories" : "सफलता की कहानियां"}
-            </h2>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg text-muted-foreground">
-                {language === "en"
-                  ? "Thousands of patients have recovered and returned to healthy lives under the care of our expert medical team."
-                  : "हजारों मरीज हमारी विशेषज्ञ चिकित्सा टीम की देखभाल में ठीक हो गए हैं और स्वस्थ जीवन में लौट आए हैं।"}
-              </p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                {language === "en" ? "Success Stories" : "सफलता की कहानियां"}
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="space-y-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Thousands of patients have recovered and returned to healthy lives under the care of our expert medical team."
+                    : "हजारों मरीज हमारी विशेषज्ञ चिकित्सा टीम की देखभाल में ठीक हो गए हैं और स्वस्थ जीवन में लौट आए हैं।"}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "From complex surgeries to chronic disease management, our doctors have helped patients overcome health challenges and achieve their wellness goals."
+                    : "जटिल सर्जरी से लेकर पुरानी बीमारी प्रबंधन तक, हमारे डॉक्टरों ने मरीजों को स्वास्थ्य चुनौतियों को दूर करने और उनके कल्याण लक्ष्यों को प्राप्त करने में मदद की है।"}
+                </p>
+              </div>
+              <div className="relative group">
+                <img
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop"
+                  alt="Success stories"
+                  className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-swing"
+                />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tr from-secondary/30 via-accent/20 to-primary/30 blur-sm"></div>
+              </div>
             </div>
           </div>
         </section>

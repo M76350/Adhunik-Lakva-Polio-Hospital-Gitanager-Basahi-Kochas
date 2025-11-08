@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
+import AppointmentDialog from "./AppointmentDialog";
 
 interface HeroSlide {
   image: string;
@@ -16,7 +18,9 @@ interface HeroSliderProps {
 
 const HeroSlider = ({ slides }: HeroSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -71,6 +75,7 @@ const HeroSlider = ({ slides }: HeroSliderProps) => {
             <Button
               size="lg"
               className="gradient-primary text-white hover:opacity-90 transition-opacity text-lg px-8 py-6"
+              onClick={() => setAppointmentOpen(true)}
             >
               {t("bookAppointment")}
             </Button>
@@ -78,6 +83,7 @@ const HeroSlider = ({ slides }: HeroSliderProps) => {
               size="lg"
               variant="outline"
               className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm text-lg px-8 py-6"
+              onClick={() => navigate('/services')}
             >
               {t("learnMore")}
             </Button>
@@ -118,6 +124,8 @@ const HeroSlider = ({ slides }: HeroSliderProps) => {
           />
         ))}
       </div>
+
+      <AppointmentDialog open={appointmentOpen} onOpenChange={setAppointmentOpen} />
     </section>
   );
 };

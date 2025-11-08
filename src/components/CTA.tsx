@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AppointmentDialog from "./AppointmentDialog";
 
 const CTA = () => {
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
   return (
     <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary relative overflow-hidden">
       {/* Animated Background */}
@@ -23,6 +26,7 @@ const CTA = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-base font-semibold px-8 py-6 rounded-full group shadow-xl"
+              onClick={() => setAppointmentOpen(true)}
             > <span className="flex items-center justify-center gap-2">
               Book Appointment Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -46,6 +50,8 @@ const CTA = () => {
           </div>
         </div>
       </div>
+
+      <AppointmentDialog open={appointmentOpen} onOpenChange={setAppointmentOpen} />
     </section>
   );
 };

@@ -238,10 +238,100 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Sections 5-10: Additional sections */}
-        <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center mb-8">{language === "en" ? "Visit Us" : "हमें मिलें"}</h2></section>
-        <section className="bg-muted/30 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Emergency Contact" : "आपातकालीन संपर्क"}</h2></section>
-        <section className="container mx-auto px-4 py-20"><h2 className="text-4xl font-bold text-center">{language === "en" ? "Feedback" : "प्रतिक्रिया"}</h2></section>
+        {/* Section 5: Visit Us */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              {language === "en" ? "Visit Us" : "हमें मिलें"}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Located in Geetanagar Basahi, Buxar district, near Kochas and just 2km from Rohtas border, we are easily accessible from surrounding areas."
+                  : "गीता नगर बसाही, बक्सर जिले में स्थित, कोचास के पास और रोहतास सीमा से केवल 2 किमी दूर, हम आसपास के क्षेत्रों से आसानी से सुलभ हैं।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Our hospital is well-connected by road and public transport. Ample parking space is available for patients and visitors."
+                  : "हमारा अस्पताल सड़क और सार्वजनिक परिवहन द्वारा अच्छी तरह से जुड़ा हुआ है। मरीजों और आगंतुकों के लिए पर्याप्त पार्किंग स्थान उपलब्ध है।"}
+              </p>
+            </div>
+            <div className="relative group">
+              <img
+                src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&auto=format&fit=crop"
+                alt="Hospital location"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-float"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 blur-sm"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Emergency Contact */}
+        <section className="bg-muted/30 py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                {language === "en" ? "Emergency Contact" : "आपातकालीन संपर्क"}
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="relative group order-2 md:order-1">
+                <img
+                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&auto=format&fit=crop"
+                  alt="Emergency services"
+                  className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-pulse-glow"
+                />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tl from-accent/30 via-primary/20 to-secondary/30 blur-sm"></div>
+              </div>
+              <div className="space-y-6 order-1 md:order-2">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "For medical emergencies, call our 24/7 emergency hotline. Our team is always ready to provide immediate assistance and care."
+                    : "चिकित्सा आपात स्थितियों के लिए, हमारी 24/7 आपातकालीन हॉटलाइन पर कॉल करें। हमारी टीम हमेशा तत्काल सहायता और देखभाल प्रदान करने के लिए तैयार है।"}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "We have a dedicated emergency department equipped with modern facilities to handle all types of medical emergencies."
+                    : "हमारे पास सभी प्रकार की चिकित्सा आपात स्थितियों को संभालने के लिए आधुनिक सुविधाओं से सुसज्जित एक समर्पित आपातकालीन विभाग है।"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 7: Feedback */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              {language === "en" ? "Feedback" : "प्रतिक्रिया"}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Your feedback helps us improve our services. We value your opinion and encourage you to share your experience with us."
+                  : "आपकी प्रतिक्रिया हमें अपनी सेवाओं में सुधार करने में मदद करती है। हम आपकी राय को महत्व देते हैं और आपको हमारे साथ अपना अनुभव साझा करने के लिए प्रोत्साहित करते हैं।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Whether it's a compliment, suggestion, or concern, we're here to listen and take action to serve you better."
+                  : "चाहे वह प्रशंसा हो, सुझाव हो, या चिंता हो, हम आपकी बेहतर सेवा के लिए सुनने और कार्रवाई करने के लिए यहां हैं।"}
+              </p>
+            </div>
+            <div className="relative group">
+              <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop"
+                alt="Patient feedback"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-zoom-in-out"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tr from-secondary/30 via-accent/20 to-primary/30 blur-sm"></div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

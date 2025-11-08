@@ -154,15 +154,32 @@ const About = () => {
 
         {/* Section 6: Mission */}
         <section className="container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-foreground mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               {language === "en" ? "Our Mission" : "हमारा मिशन"}
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {language === "en"
-                ? "To provide accessible, compassionate, and innovative healthcare services that improve community health and wellbeing."
-                : "सुलभ, दयालु और अभिन्न स्वास्थ्य सेवाएं प्रदान करना जो समुदाय के स्वास्थ्य और कल्याण में सुधार करें।"}
-            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="space-y-6">
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "To provide accessible, compassionate, and innovative healthcare services that improve community health and wellbeing."
+                  : "सुलभ, दयालु और अभिन्न स्वास्थ्य सेवाएं प्रदान करना जो समुदाय के स्वास्थ्य और कल्याण में सुधार करें।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "We strive to be a healthcare partner that patients can trust, delivering quality medical care through evidence-based practices and compassionate service."
+                  : "हम एक ऐसा स्वास्थ्य सेवा साथी बनने का प्रयास करते हैं जिस पर मरीज भरोसा कर सकें, साक्ष्य-आधारित प्रथाओं और दयालु सेवा के माध्यम से गुणवत्तापूर्ण चिकित्सा देखभाल प्रदान करते हुए।"}
+              </p>
+            </div>
+            <div className="relative group">
+              <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop"
+                alt="Healthcare mission"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-float"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 blur-sm"></div>
+            </div>
           </div>
         </section>
 
@@ -200,45 +217,96 @@ const About = () => {
 
         {/* Section 8: Team Culture */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-            {language === "en" ? "Our Team Culture" : "हमारी टीम संस्कृति"}
-          </h2>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {language === "en"
-                ? "We foster a collaborative environment where healthcare professionals work together to deliver the best possible patient care."
-                : "हम एक सहयोगी वातावरण को बढ़ावा देते हैं जहां स्वास्थ्य सेवा पेशेवर सर्वोत्तम संभव रोगी देखभाल प्रदान करने के लिए मिलकर काम करते हैं।"}
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              {language === "en" ? "Our Team Culture" : "हमारी टीम संस्कृति"}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="relative group order-2 md:order-1">
+              <img
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&auto=format&fit=crop"
+                alt="Team collaboration"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-pulse-glow"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-bl from-accent/30 via-primary/20 to-secondary/30 blur-sm"></div>
+            </div>
+            <div className="space-y-6 order-1 md:order-2">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "We foster a collaborative environment where healthcare professionals work together to deliver the best possible patient care."
+                  : "हम एक सहयोगी वातावरण को बढ़ावा देते हैं जहां स्वास्थ्य सेवा पेशेवर सर्वोत्तम संभव रोगी देखभाल प्रदान करने के लिए मिलकर काम करते हैं।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "Our team members are encouraged to share knowledge, learn from each other, and continuously improve their skills to serve our patients better."
+                  : "हमारी टीम के सदस्यों को ज्ञान साझा करने, एक-दूसरे से सीखने और अपने मरीजों की बेहतर सेवा के लिए अपने कौशल में लगातार सुधार करने के लिए प्रोत्साहित किया जाता है।"}
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Section 9: Community Impact */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-              {language === "en" ? "Community Impact" : "सामुदायिक प्रभाव"}
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-muted-foreground text-center leading-relaxed">
-                {language === "en"
-                  ? "Through health camps, awareness programs, and free consultations, we actively contribute to improving public health in Buxar and surrounding areas."
-                  : "स्वास्थ्य शिविरों, जागरूकता कार्यक्रमों और मुफ्त परामर्श के माध्यम से, हम बक्सर और आसपास के क्षेत्रों में सार्वजनिक स्वास्थ्य में सुधार में सक्रिय रूप से योगदान करते हैं।"}
-              </p>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                {language === "en" ? "Community Impact" : "सामुदायिक प्रभाव"}
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="space-y-6">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Through health camps, awareness programs, and free consultations, we actively contribute to improving public health in Buxar and surrounding areas."
+                    : "स्वास्थ्य शिविरों, जागरूकता कार्यक्रमों और मुफ्त परामर्श के माध्यम से, हम बक्सर और आसपास के क्षेत्रों में सार्वजनिक स्वास्थ्य में सुधार में सक्रिय रूप से योगदान करते हैं।"}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "We believe in giving back to the community that has supported us for over 25 years by organizing regular health camps and educational programs."
+                    : "हम नियमित स्वास्थ्य शिविरों और शैक्षिक कार्यक्रमों का आयोजन करके उस समुदाय को वापस देने में विश्वास करते हैं जिसने 25 से अधिक वर्षों से हमारा समर्थन किया है।"}
+                </p>
+              </div>
+              <div className="relative group">
+                <img
+                  src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&auto=format&fit=crop"
+                  alt="Community health camp"
+                  className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-swing"
+                />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tr from-secondary/30 via-accent/20 to-primary/30 blur-sm"></div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Section 10: Technology & Innovation */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-            {language === "en" ? "Technology & Innovation" : "प्रौद्योगिकी और नवाचार"}
-          </h2>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {language === "en"
-                ? "We continuously invest in the latest medical technology and equipment to provide cutting-edge treatment options."
-                : "हम अत्याधुनिक उपचार विकल्प प्रदान करने के लिए नवीनतम चिकित्सा प्रौद्योगिकी और उपकरणों में लगातार निवेश करते हैं।"}
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              {language === "en" ? "Technology & Innovation" : "प्रौद्योगिकी और नवाचार"}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="relative group order-2 md:order-1">
+              <img
+                src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&auto=format&fit=crop"
+                alt="Medical technology"
+                className="rounded-2xl shadow-2xl transition-all duration-700 ease-in-out group-hover:scale-105 animate-zoom-in-out"
+              />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-tl from-primary/30 via-accent/20 to-secondary/30 blur-sm"></div>
+            </div>
+            <div className="space-y-6 order-1 md:order-2">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "We continuously invest in the latest medical technology and equipment to provide cutting-edge treatment options."
+                  : "हम अत्याधुनिक उपचार विकल्प प्रदान करने के लिए नवीनतम चिकित्सा प्रौद्योगिकी और उपकरणों में लगातार निवेश करते हैं।"}
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {language === "en"
+                  ? "From advanced diagnostic equipment to modern treatment facilities, we ensure our patients have access to the best medical technology available."
+                  : "उन्नत निदान उपकरण से लेकर आधुनिक उपचार सुविधाओं तक, हम सुनिश्चित करते हैं कि हमारे मरीजों को उपलब्ध सर्वोत्तम चिकित्सा प्रौद्योगिकी तक पहुंच हो।"}
+              </p>
+            </div>
           </div>
         </section>
 
