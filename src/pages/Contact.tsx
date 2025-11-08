@@ -27,16 +27,36 @@ const Contact = () => {
 
   const contactContent = language === "en" ? contentData.en.contact : contentData.hi.contact;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: language === "en" ? "Message Sent!" : "संदेश भेजा गया!",
-      description: language === "en" 
-        ? "We'll get back to you soon." 
-        : "हम जल्द ही आपसे संपर्क करेंगे।",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Failed to send message');
+
+      toast({
+        title: language === "en" ? "Message Sent!" : "संदेश भेजा गया!",
+        description: language === "en" 
+          ? "We'll get back to you soon." 
+          : "हम जल्द ही आपसे संपर्क करेंगे।",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      toast({
+        title: language === "en" ? "Error" : "त्रुटि",
+        description: language === "en" 
+          ? "Failed to send message. Please try again." 
+          : "संदेश भेजने में विफल। कृपया पुनः प्रयास करें।",
+        variant: "destructive",
+      });
+    }
   };
 
   const heroSlides = [
@@ -89,7 +109,7 @@ const Contact = () => {
     { 
       icon: Phone, 
       title: language === "en" ? "Phone" : "फोन", 
-      content: "+91 XXXXX-XXXXX",
+      content: "+91 9110142755",
       detail: contactContent.sections.phone
     },
     { 
@@ -107,7 +127,7 @@ const Contact = () => {
     { 
       icon: MessageCircle, 
       title: language === "en" ? "WhatsApp" : "व्हाट्सएप", 
-      content: "+91 XXXXX-XXXXX",
+      content: "+91 9110142755",
       detail: contactContent.sections.whatsapp
     },
     { 
